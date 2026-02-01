@@ -41,7 +41,7 @@ export default function Page() {
       header: "สกิล",
       headerIcon: Terminal,
       customDetail: (
-        <div className="mt-4 ">
+        <div className="mt-4">
           <SkillsTabs />
         </div>
       ),
@@ -54,7 +54,7 @@ export default function Page() {
   return (
     <div className="flex w-full py-4">
       {/* Content */}
-      <main className="flex-1 min-h-screen px-6 w-full  sm:w-208">
+      <main className="flex-1 min-h-screen px-6 w-full sm:w-208">
         <div className="flex flex-col gap-3 mb-8 ">
           {informationPage.map((item, index) => (
             <Fragment key={item.id}>

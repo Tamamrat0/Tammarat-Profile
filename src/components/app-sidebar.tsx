@@ -1,60 +1,56 @@
 "use client";
 import React, { useState } from "react";
-import {
-  Calendar,
-  ChevronDown,
-  Home,
-  Inbox,
-  Menu,
-  Search,
-  Settings,
-} from "lucide-react";
-import { useIsMobile } from "@/hooks/use-mobile";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 import {
-  Avatar,
-  AvatarBadge,
-  AvatarFallback,
-  AvatarImage,
-} from "@/components/ui/avatar";
+  Briefcase,
+  ChevronDown,
+  FolderKanban,
+  GraduationCap,
+  Home,
+  Mail,
+  Menu,
+} from "lucide-react";
+
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+
+import { motion } from "framer-motion";
 
 export default function AppSidebar() {
-  const isMobile = useIsMobile();
   const [smOpenMenu, setSmOpenMenu] = useState(false);
 
-  console.log(isMobile);
+  const pathname = usePathname();
+
   const items = [
     {
-      title: "Home",
-      url: "#",
+      title: "แนะนำตัว",
+      url: "/about",
       icon: Home,
     },
     {
-      title: "Inbox",
-      url: "#",
-      icon: Inbox,
+      title: "การศึกษา",
+      url: "/education",
+      icon: GraduationCap,
     },
     {
-      title: "Calendar",
-      url: "#",
-      icon: Calendar,
+      title: "การทำงาน",
+      url: "/career",
+      icon: Briefcase,
     },
     {
-      title: "Search",
-      url: "#",
-      icon: Search,
-    },
-    {
-      title: "Settings",
-      url: "#",
-      icon: Settings,
+      title: "โปรเจค",
+      url: "/projects",
+      icon: FolderKanban,
     },
   ];
 
   return (
     <div>
-      <div className="hidden sm:flex flex-col w-40 md:w-63.5 duration-200 bg-background border h-[calc(100vh-8.5rem)] overflow-y-auto gap-4 py-6 px-4">
-        <div className="flex flex-col w-full gap-3 items-center">
+      {/* Desktop */}
+      <div className="hidden  sm:flex flex-col w-40 md:w-63.5 duration-200 bg-background h-[calc(100vh-8.5rem)] overflow-y-auto gap-4 py-6 px-4 sticky top-29">
+        <div className="flex flex-col w-full gap-3 items-center border-b">
           <div className="relative">
             <Avatar className="bg-blue-200 w-20 h-20">
               <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
@@ -63,41 +59,71 @@ export default function AppSidebar() {
 
             {/* สร้าง Badge เองด้วย div */}
             <span className="absolute bottom-1 right-1 flex h-4 w-4">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+              <span className=" absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-4 w-4 bg-green-600 border-2 border-white"></span>
             </span>
           </div>
-          <div className="flex flex-col items-center">
-            <span>XXXX XXXX</span>
-            <span className="text-muted-foreground">xxxx@xxxx.com</span>
+          <div className="flex flex-col items-center mb-4">
+            <span>ธรรมรัตน์ มนตรี (ปลื้ม)</span>
+            <a
+              href="mailto:tammarat.m123@gmail.com"
+              className="flex items-center gap-2 hover:text-foreground transition-colors text-sm text-muted-foreground"
+            >
+              <Mail className="h-4 w-4" />
+              tammarat.m123@gmail.com
+            </a>
           </div>
         </div>
         {items.map((item, i) => (
-          <a
-            href="#"
+          <Link
+            href={item.url}
             key={i}
-            className={`w-full text-sm flex items-center gap-2 text-muted-foreground hover:text-foreground ${i === 2 ? "text-primary font-semibold" : "font-base"}`}
+            className={`w-full text-sm flex items-center gap-2 text-muted-foreground hover:text-foreground duration-300 ${pathname === item.url ? "text-primary font-semibold" : "font-base"}`}
           >
-            <item.icon className="w-4 h-4 " />
+            <item.icon className="w-5 h-5" />
             {item.title}
-          </a>
+          </Link>
         ))}
       </div>
-      <div className="flex flex-col sm:hidden w-full border py-2 px-4">
+
+      {/* Mobile */}
+      <div className="flex flex-col sm:hidden w-full py-2 px-4">
         <button
           className="flex w-full items-center justify-between duration-300 cursor-pointer"
           onClick={() => setSmOpenMenu((prev) => !prev)}
         >
           <div className="flex items-center gap-2 ">
-            <Menu />
-            Menu
+            <Menu className="w-4 h-4" />
+            <span>เมนู</span>
           </div>
           <ChevronDown
             className={`${smOpenMenu ? "rotate-180" : " rotate-0"} duration-300`}
           />
         </button>
-        <div className={`mt-6 ${smOpenMenu ? "h-20" : "h-0"} duration-200`}>
-          2123
+        <div className="mt-4">
+          {/* AnimatePresence ใช้สำหรับจัดการการ Mount/Unmount ของ children */}
+          <motion.div
+            layout
+            initial={false}
+            animate={{
+              height: smOpenMenu ? "auto" : 0,
+              opacity: smOpenMenu ? 1 : 0,
+            }}
+            className="overflow-hidden w-full"
+          >
+            <div className="px-2 flex flex-col gap-4">
+              {items.map((item, i) => (
+                <Link
+                  href={item.url}
+                  key={i}
+                  className={`w-full text-base flex items-center gap-2 text-muted-foreground hover:text-foreground ${pathname === item.url ? "text-primary font-semibold" : "font-base"}`}
+                >
+                  <item.icon className="w-5 h-5" />
+                  {item.title}
+                </Link>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </div>
     </div>

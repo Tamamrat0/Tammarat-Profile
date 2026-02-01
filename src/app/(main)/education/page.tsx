@@ -2,47 +2,45 @@
 import React, { Fragment } from "react";
 
 import { Separator } from "@/components/ui/separator";
-import { Terminal } from "lucide-react";
+import { Book, BookCopy } from "lucide-react";
 import { InformationType } from "@/app/types/informaion-type";
 import { useScrollSpy } from "@/hooks/useScrollSpy";
-
-import { SkillsTabs } from "@/components/skills/skills-tabs";
 
 export default function Page() {
   const informationPage: InformationType[] = [
     {
-      id: "intro",
-      header: "สวัสดีครับ",
-      headerEmoji: "👋",
+      id: "voc",
+      header: "ประกาศนียบัตรวิชาชีพ (ปวช.)",
+      headerIcon: Book,
       customDetail: (
-        <div className="mt-4 ">
-          <p className="text-muted-foreground text-base leading-relaxed">
-            ผมเป็นนักพัฒนา Internal System มีประสบการณ์พัฒนา Web Application
-            สำหรับการใช้งานจริงในองค์กรกว่า 3 ปี
-            มีส่วนร่วมตั้งแต่การเก็บความต้องการผู้ใช้งาน
-            การออกแบบโครงสร้างระบบและฐานข้อมูล
+        <div className="mt-4 space-y-4 ">
+          <p className="text-xl leading-relaxed">
+            วิทยาลัยเทคนิคสมุทรสาคร (2017-2020)
           </p>
-
           <p className="text-muted-foreground text-base leading-relaxed">
-            รับผิดชอบการพัฒนา Backend และ RESTful API รวมถึง Frontend
-            สำหรับระบบงานจริง มีความเข้าใจระบบ ERP ฝั่งการผลิตและการปฏิบัติงาน
-            (ยกเว้นส่วนบัญชี)
+            สาขาคอมพิวเตอร์ธุรกิจ
           </p>
-
           <p className="text-muted-foreground text-base leading-relaxed">
-            เข้าใจมุมมองการใช้งานจริงของผู้ใช้ และกระบวนการทำงานภายในองค์กร
-            สามารถสื่อสารกับผู้ใช้งานและทีมงานได้อย่างมีประสิทธิภาพ
+            เกรดเฉลี่ย 3.4
           </p>
         </div>
       ),
     },
     {
-      id: "skills",
-      header: "สกิล",
-      headerIcon: Terminal,
+      id: "hvc",
+      header: "ประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.)",
+      headerIcon: BookCopy,
       customDetail: (
-        <div className="mt-4 ">
-          <SkillsTabs />
+        <div className="mt-4 space-y-4">
+          <p className="text-xl leading-relaxed">
+            วิทยาลัยฐานเทคโนโลยี (2023-2025)
+          </p>
+          <p className="text-muted-foreground text-base leading-relaxed">
+            สาขาธุรกิจดิจิทัล
+          </p>
+          <p className="text-muted-foreground text-base leading-relaxed">
+            เกรดเฉลี่ย 3.3
+          </p>
         </div>
       ),
     },
@@ -54,8 +52,8 @@ export default function Page() {
   return (
     <div className="flex w-full py-4">
       {/* Content */}
-      <main className="flex-1 min-h-screen px-6 w-full  sm:w-208">
-        <div className="flex flex-col gap-3 mb-8 ">
+      <main className="flex-1 min-h-screen px-6 w-full sm:w-208">
+        <div className="flex flex-col gap-3 w-full  mb-8">
           {informationPage.map((item, index) => (
             <Fragment key={item.id}>
               <section id={item.id} className="scroll-mt-28">
@@ -65,15 +63,11 @@ export default function Page() {
                   <p>{item.header}</p>
                 </h1>
                 {item.normalDetail && (
-                  <p className="text-muted-foreground text-base leading-relaxed">
+                  <p className="text-muted-foreground text-base leading-relaxed mt-4 min-w-4xl">
                     {item.normalDetail}
                   </p>
                 )}
-                {item.customDetail && (
-                  <div className="">
-                    {item.customDetail}
-                  </div>
-                )}
+                {item.customDetail && item.customDetail}
               </section>
               {index !== informationPage.length - 1 && (
                 <Separator className="my-8" />
