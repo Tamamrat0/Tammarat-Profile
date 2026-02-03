@@ -2,7 +2,7 @@
 import React, { Fragment, useState } from "react";
 import Image from "next/image";
 import { Separator } from "@/components/ui/separator";
-import { BriefcaseBusiness, Mouse } from "lucide-react";
+import { ArrowRight, BriefcaseBusiness } from "lucide-react";
 import { InformationType } from "@/app/types/informaion-type";
 import { useScrollSpy } from "@/hooks/useScrollSpy";
 import { CareerData } from "./career-data";
@@ -28,31 +28,32 @@ export default function Page() {
                   <Image
                     src={item.companyLogo ?? ""}
                     alt="Company Logo"
-                    width={76}
-                    height={76}
+                    width={80}
+                    height={80}
                     className="rounded-md object-contain "
                   />
                 </div>
 
                 {/* Header */}
-                <div className="flex flex-col ">
+                <div className="flex flex-col  w-full">
                   <div className="space-y-1">
                     <h3 className="text-base font-semibold">{item.position}</h3>
                     <p className="text-muted-foreground text-sm">
                       {item.companyName}
                     </p>
                   </div>
-                  <div className="space-y-0.5 mt-4">
+                  <div className="space-y-0.5">
                     <p className="text-muted-foreground text-sm">
                       {item.period.start} – {item.period.end}
                     </p>
-                    <button
-                      onClick={() => handleOpenDialog(item.id)}
-                      className="flex gap-2 items-center text-muted-foreground hover:text-white cursor-pointer"
-                    >
-                      <Mouse className="w-4 h-4" />
-                      รายละเอียดเพิ่มเติม
-                    </button>
+                    <div className="flex justify-end">
+                      <button
+                        onClick={() => handleOpenDialog(item.id)}
+                        className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2 cursor-pointer"
+                      >
+                        รายละเอียดเพิ่มเติม <ArrowRight className="w-4 h-4" />
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>

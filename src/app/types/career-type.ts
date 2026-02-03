@@ -1,7 +1,5 @@
-import { ProjectItem } from "./project-type";
-
 export interface CareerItem {
-  id:string;
+  id: string;
   companyName: string;
   companyLogo?: string;
   position: string;
@@ -11,11 +9,11 @@ export interface CareerItem {
   };
   jobExperience: string[];
   jobSuccess?: JobSuccess[];
-  projects?: ProjectItem[];
+  projects?: string[];
 }
 
 export interface JobSuccess {
-  id:string;
+  id: string;
   imagePath?: string;
   detail: string;
 }

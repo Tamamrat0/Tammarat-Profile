@@ -8,12 +8,12 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 
-import Image from "next/image";
-
 import { CareerItem } from "@/app/types/career-type";
-import { Briefcase, PartyPopper } from "lucide-react";
+import { ArrowRight, Briefcase, Layers, PartyPopper } from "lucide-react";
 import { Separator } from "./ui/separator";
 import { ImagePreview } from "./app-image-preview";
+
+import { ProjectData } from "@/app/(main)/projects/project-data";
 
 interface CareerDataProp {
   open: boolean;
@@ -22,7 +22,21 @@ interface CareerDataProp {
 }
 
 export default function CareerDialog({ open, close, data }: CareerDataProp) {
-  console.log(data);
+  const techDotMap: Record<string, string> = {
+    React: "bg-sky-500",
+    NextJS: "bg-black dark:bg-white",
+    AntD: "bg-blue-600",
+    Shadcn: "bg-zinc-900 dark:bg-zinc-100",
+    Tailwind: "bg-cyan-500",
+    ExpressJS: "bg-gray-600",
+    NestJS: "bg-red-600",
+    Mssql: "bg-emerald-600",
+  };
+
+  const projectMap = Object.fromEntries(
+    ProjectData.map((project) => [project.id, project]),
+  );
+
   return (
     <Dialog open={open} onOpenChange={close}>
       <DialogContent className=" max-w-4xl!">
@@ -49,7 +63,65 @@ export default function CareerDialog({ open, close, data }: CareerDataProp) {
           </section>
           <Separator />
 
-          <div className="grid gap-4 sm:grid-cols-1">
+          <section className="space-y-4">
+            <h3 className="text-lg font-semibold flex items-center gap-2">
+              <Layers className="w-5 h-5" /> โปรเจค
+            </h3>
+            {data?.projects?.length ? (
+              <div className="space-y-4">
+                {data.projects.map((projectId) => {
+                  const project = projectMap[projectId];
+                  if (!project) return null;
+
+                  return (
+                    <div
+                      key={project.id}
+                      className="rounded-lg border p-4 transition hover:bg-muted/50"
+                    >
+                      <h4 className="font-semibold text-base">
+                        {project.name}
+                      </h4>
+
+                      <p className="mt-1 text-sm text-muted-foreground">
+                        {project.description}
+                      </p>
+
+                      {project.techStack?.length ? (
+                        <div className="mt-3 flex flex-wrap gap-2">
+                          {project.techStack.map((tech, index) => (
+                            <span
+                              key={index}
+                              className="flex items-center gap-2 rounded-sm border px-2 py-0.5 text-xs text-muted-foreground"
+                            >
+                              <span
+                                className={`relative h-2 w-2 rounded-full ${
+                                  techDotMap[tech] ?? "bg-muted-foreground"
+                                }`}
+                              />
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                      ) : null}
+
+                      <div className="mt-4 flex justify-end">
+                        <button
+                          className="text-xs text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2"
+                          onClick={() => {
+                            console.log("open project detail", project.id);
+                          }}
+                        >
+                          รายละเอียดเพิ่มเติม <ArrowRight className="w-4 h-4" />
+                        </button>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            ) : null}
+          </section>
+          <Separator />
+          <section className="grid gap-4 sm:grid-cols-1">
             {data?.jobSuccess?.length ? (
               <section className="space-y-2">
                 <h3 className="text-lg font-semibold flex items-center gap-2">
@@ -69,8 +141,7 @@ export default function CareerDialog({ open, close, data }: CareerDataProp) {
                 </div>
               </section>
             ) : null}
-          </div>
-          {/* </section> */}
+          </section>
         </div>
       </DialogContent>
     </Dialog>

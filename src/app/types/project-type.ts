@@ -1,4 +1,7 @@
+import { StackName } from "./stack-type";
+
 export interface ProjectItem {
+  id: string;
   name: string;
   description: string;
   link?: string;
@@ -6,7 +9,7 @@ export interface ProjectItem {
   role?: string[];
   background?: string[];
   problem?: string[];
-  techStack?: string[];
+  techStack?: StackName[];
   attachments?: Attachments[];
 }
 
