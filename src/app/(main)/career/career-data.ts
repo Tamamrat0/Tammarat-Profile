@@ -2,6 +2,7 @@ import { CareerItem } from "@/app/types/career-type";
 
 export const CareerData: CareerItem[] = [
   {
+    id: "1",
     companyName: "Wann Cosmetics & Laboratory Co., Ltd",
     companyLogo: "/images/logo-wann.svg",
     position: "IT Specialist (Internal System Developer)",
@@ -16,9 +17,11 @@ export const CareerData: CareerItem[] = [
     ],
     jobSuccess: [
       {
+        id:'1',
         imagePath: "/images/success_2024.jpg",
         detail: "ได้รับรางวัลพนังงานดีเด่นประจำปี 2024",
       },
+
     ],
     projects: [{ name: "", description: "" }],
   },

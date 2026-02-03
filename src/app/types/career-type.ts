@@ -1,6 +1,7 @@
 import { ProjectItem } from "./project-type";
 
 export interface CareerItem {
+  id:string;
   companyName: string;
   companyLogo?: string;
   position: string;
@@ -14,6 +15,7 @@ export interface CareerItem {
 }
 
 export interface JobSuccess {
+  id:string;
   imagePath?: string;
   detail: string;
 }

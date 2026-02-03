@@ -5,10 +5,13 @@ import { Separator } from "@/components/ui/separator";
 import { BriefcaseBusiness, Mouse } from "lucide-react";
 import { InformationType } from "@/app/types/informaion-type";
 import { useScrollSpy } from "@/hooks/useScrollSpy";
+import { CareerData } from "./career-data";
+import { CareerItem } from "@/app/types/career-type";
+import CareerDialog from "@/components/career-dialog";
 
 export default function Page() {
-  const [openDetail, setOpenDetail] = useState("");
-  // const [openDetail , setOpenDetail] = useState("");
+  const [openDetail, setOpenDetail] = useState(false);
+  const [detailCareer, setDetailCareer] = useState<CareerItem>();
   const informationPage: InformationType[] = [
     {
       id: "work",
@@ -16,50 +19,67 @@ export default function Page() {
       headerIcon: BriefcaseBusiness,
       normalDetail: "เส้นทางอาชีพของผม",
       customDetail: (
-        <div className="mt-4">
-          <div className="p-6 border rounded-md w-full flex flex-col items-start sm:items-center sm:flex-row gap-4 bg-card hover:bg-secondary duration-300">
-            {/* Logo / Image */}
-            <div className="w-20 h-20 rounded-md bg-white flex items-center justify-center p-2">
-              <Image
-                src="/images/logo-wann.svg"
-                alt="Company Logo"
-                width={76}
-                height={76}
-                className="rounded-md object-contain "
-              />
-            </div>
+        <div className="mt-4 space-y-4">
+          {CareerData.map((item) => (
+            <Fragment key={item.id}>
+              <div className="p-6 border rounded-md w-full flex flex-col items-start sm:items-center sm:flex-row gap-4 bg-card hover:bg-secondary duration-300">
+                {/* Logo / Image */}
+                <div className="w-20 h-20 rounded-md bg-white flex items-center justify-center p-2">
+                  <Image
+                    src={item.companyLogo ?? ""}
+                    alt="Company Logo"
+                    width={76}
+                    height={76}
+                    className="rounded-md object-contain "
+                  />
+                </div>
 
-            {/* Header */}
-            <div className="flex flex-col ">
-              <div className="space-y-1">
-                <h3 className="text-base font-semibold">
-                  IT Specialist (Internal System Developer)
-                </h3>
-                <p className="text-muted-foreground text-sm">
-                  Wann Cosmetics & Laboratory Co., Ltd
-                </p>
+                {/* Header */}
+                <div className="flex flex-col ">
+                  <div className="space-y-1">
+                    <h3 className="text-base font-semibold">{item.position}</h3>
+                    <p className="text-muted-foreground text-sm">
+                      {item.companyName}
+                    </p>
+                  </div>
+                  <div className="space-y-0.5 mt-4">
+                    <p className="text-muted-foreground text-sm">
+                      {item.period.start} – {item.period.end}
+                    </p>
+                    <button
+                      onClick={() => handleOpenDialog(item.id)}
+                      className="flex gap-2 items-center text-muted-foreground hover:text-white cursor-pointer"
+                    >
+                      <Mouse className="w-4 h-4" />
+                      รายละเอียดเพิ่มเติม
+                    </button>
+                  </div>
+                </div>
               </div>
-              <div className="space-y-0.5 mt-4">
-                <p className="text-muted-foreground text-sm">
-                  Dec 2021 – Present
-                </p>
-                <button className="flex gap-2 items-center text-muted-foreground hover:text-white cursor-pointer">
-                  <Mouse className="w-4 h-4" />
-                  รายละเอียดเพิ่มเติม
-                </button>
-              </div>
-            </div>
-          </div>
+            </Fragment>
+          ))}
         </div>
       ),
     },
   ];
+
+  function handleOpenDialog(id: string) {
+    const result = CareerData.find((i) => i.id === id);
+    if (!result) return;
+    setDetailCareer(result);
+    setOpenDetail(true);
+  }
 
   const sectionIds = informationPage.map((item) => item.id);
   const activeId = useScrollSpy(sectionIds, 200);
 
   return (
     <div className="flex w-full py-4">
+      <CareerDialog
+        open={openDetail}
+        close={setOpenDetail}
+        data={detailCareer}
+      />
       {/* Content */}
       <main className="flex-1 min-h-screen px-6 w-full sm:w-208">
         <div className="flex flex-col gap-3 w-full mb-8">
