@@ -7,13 +7,15 @@ const TECH_IMAGE_MAP: Record<StackName, string> = {
   NextJS: "/icons/nextjs.png",
   Tailwind: "/icons/tailwindcss.png",
   Antd: "/icons/antd.png",
-  ExpressJS: "/icons/react.png",
-  NestJS: "/icons/express.png",
+  ExpressJS: "/icons/expressjs.png",
+  NestJS: "/icons/nestjs.svg",
   Shadcn: "/icons/shadcn.png",
   Mssql: "/icons/mssql.png",
+  Docker: "/icons/docker.png",
+  SocketIo: "/icons/socketio.svg",
 };
 
-export function getTechImage(tech: StackName, size: number = 16): ReactNode {
+export function getTechImage(tech: StackName, size: number = 35): ReactNode {
   const src = TECH_IMAGE_MAP[tech];
 
   if (!src) return null;
@@ -24,7 +26,7 @@ export function getTechImage(tech: StackName, size: number = 16): ReactNode {
       alt={tech}
       width={size}
       height={size}
-      className="shrink-0"
+      className="object-scale-down rounded-md  p-1 hover:scale-150 duration-300"
     />
   );
 }

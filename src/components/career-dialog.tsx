@@ -14,6 +14,7 @@ import { Separator } from "./ui/separator";
 import { ImagePreview } from "./app-image-preview";
 
 import { ProjectData } from "@/app/(main)/projects/project-data";
+import { getTechImage } from "@/lib/teck-stack";
 
 interface CareerDataProp {
   open: boolean;
@@ -22,17 +23,6 @@ interface CareerDataProp {
 }
 
 export default function CareerDialog({ open, close, data }: CareerDataProp) {
-  const techDotMap: Record<string, string> = {
-    React: "bg-sky-500",
-    NextJS: "bg-black dark:bg-white",
-    AntD: "bg-blue-600",
-    Shadcn: "bg-zinc-900 dark:bg-zinc-100",
-    Tailwind: "bg-cyan-500",
-    ExpressJS: "bg-gray-600",
-    NestJS: "bg-red-600",
-    Mssql: "bg-emerald-600",
-  };
-
   const projectMap = Object.fromEntries(
     ProjectData.map((project) => [project.id, project]),
   );
@@ -87,20 +77,18 @@ export default function CareerDialog({ open, close, data }: CareerDataProp) {
                       </p>
 
                       {project.techStack?.length ? (
-                        <div className="mt-3 flex flex-wrap gap-2">
-                          {project.techStack.map((tech, index) => (
-                            <span
-                              key={index}
-                              className="flex items-center gap-2 rounded-sm border px-2 py-0.5 text-xs text-muted-foreground"
-                            >
-                              <span
-                                className={`relative h-2 w-2 rounded-full ${
-                                  techDotMap[tech] ?? "bg-muted-foreground"
-                                }`}
-                              />
-                              {tech}
-                            </span>
-                          ))}
+                        <div className="mt-3 flex items-center gap-3">
+                          <span className="text-xs font-medium text-muted-foreground whitespace-nowrap">
+                            Tech Stack
+                          </span>
+
+                          <div className="flex flex-wrap items-center gap-2">
+                            {project.techStack.map((tech) => (
+                              <span key={tech} title={tech}>
+                                {getTechImage(tech, 30)}
+                              </span>
+                            ))}
+                          </div>
                         </div>
                       ) : null}
 

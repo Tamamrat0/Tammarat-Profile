@@ -1,61 +1,94 @@
 "use client";
-import React, { Fragment } from "react";
-
+import React, { Fragment, useState } from "react";
+import Image from "next/image";
 import { Separator } from "@/components/ui/separator";
-import { Terminal } from "lucide-react";
+import { ArrowRight, BriefcaseBusiness } from "lucide-react";
 import { InformationType } from "@/app/types/informaion-type";
 import { useScrollSpy } from "@/hooks/useScrollSpy";
-
-import { SkillsTabs } from "@/components/skills/skills-tabs";
+import { CareerData } from "../career/career-data";
+import { ProjectData } from "./project-data";
+import { CareerItem } from "@/app/types/career-type";
+import CareerDialog from "@/components/career-dialog";
+import { getTechImage } from "@/lib/teck-stack";
 
 export default function Page() {
+  const [openDetail, setOpenDetail] = useState(false);
+  const [detailCareer, setDetailCareer] = useState<CareerItem>();
   const informationPage: InformationType[] = [
     {
-      id: "intro",
-      header: "สวัสดีครับ",
-      headerEmoji: "👋",
+      id: "work",
+      header: "การทำงาน",
+      headerIcon: BriefcaseBusiness,
+      normalDetail: "เส้นทางอาชีพของผม",
       customDetail: (
-        <div className="mt-4 ">
-          <p className="text-muted-foreground text-base leading-relaxed">
-            ผมเป็นนักพัฒนา Internal System มีประสบการณ์พัฒนา Web Application
-            สำหรับการใช้งานจริงในองค์กรกว่า 3 ปี
-            มีส่วนร่วมตั้งแต่การเก็บความต้องการผู้ใช้งาน
-            การออกแบบโครงสร้างระบบและฐานข้อมูล
-          </p>
+        <div className="mt-4 space-y-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {ProjectData.map((item) => (
+              <Fragment key={item.id}>
+                <div className="border rounded-md flex flex-col w-full h-80 overflow-hidden hover:bg-secondary/50 transition cursor-pointer group">
+                  <div className="relative h-[60%] border-b overflow-hidden ">
+                    <div className="absolute inset-0  transition duration-300 group-hover:blur-xl">
+                      {/* Background image layer */}
+                      <Image
+                        src="/images/success_2024.jpg"
+                        alt="Company Logo"
+                        width={1920}
+                        height={1920}
+                        className="object-cover w-full h-full"
+                      />
+                    </div>
+                    {/* Overlay content */}
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                      <button className="flex items-center gap-2 text-white text-sm font-medium">
+                        รายละเอียดเพิ่มเติม <ArrowRight className="w-4 h-4" />
+                      </button>
+                    </div>
+                  </div>
 
-          <p className="text-muted-foreground text-base leading-relaxed">
-            รับผิดชอบการพัฒนา Backend และ RESTful API รวมถึง Frontend
-            สำหรับระบบงานจริง มีความเข้าใจระบบ ERP ฝั่งการผลิตและการปฏิบัติงาน
-            (ยกเว้นส่วนบัญชี)
-          </p>
-
-          <p className="text-muted-foreground text-base leading-relaxed">
-            เข้าใจมุมมองการใช้งานจริงของผู้ใช้ และกระบวนการทำงานภายในองค์กร
-            สามารถสื่อสารกับผู้ใช้งานและทีมงานได้อย่างมีประสิทธิภาพ
-          </p>
-        </div>
-      ),
-    },
-    {
-      id: "skills",
-      header: "สกิล",
-      headerIcon: Terminal,
-      customDetail: (
-        <div className="mt-4">
-          <SkillsTabs />
+                  <div className="flex flex-col gap-2 p-4 flex-1 ">
+                    <h3>{item.name}</h3>
+                    <p className={`text-sm text-muted-foreground line-clamp-2`}>
+                      {item.description}
+                    </p>
+                    {item.techStack?.length ? (
+                      <div className="flex flex-wrap items-center gap-2">
+                        {item.techStack.map((tech) => (
+                          <span key={tech} title={tech}>
+                            {getTechImage(tech, 30)}
+                          </span>
+                        ))}
+                      </div>
+                    ) : null}
+                  </div>
+                </div>
+              </Fragment>
+            ))}
+          </div>
         </div>
       ),
     },
   ];
+
+  function handleOpenDialog(id: string) {
+    const result = CareerData.find((i) => i.id === id);
+    if (!result) return;
+    setDetailCareer(result);
+    setOpenDetail(true);
+  }
 
   const sectionIds = informationPage.map((item) => item.id);
   const activeId = useScrollSpy(sectionIds, 200);
 
   return (
     <div className="flex w-full py-4">
+      <CareerDialog
+        open={openDetail}
+        close={setOpenDetail}
+        data={detailCareer}
+      />
       {/* Content */}
       <main className="flex-1 min-h-screen px-6 w-full sm:w-208">
-        <div className="flex flex-col gap-3 mb-8 ">
+        <div className="flex flex-col gap-3 w-full mb-8">
           {informationPage.map((item, index) => (
             <Fragment key={item.id}>
               <section id={item.id} className="scroll-mt-28">
@@ -65,15 +98,11 @@ export default function Page() {
                   <p>{item.header}</p>
                 </h1>
                 {item.normalDetail && (
-                  <p className="text-muted-foreground text-base leading-relaxed">
+                  <div className="text-muted-foreground text-base leading-relaxed mt-2 flex">
                     {item.normalDetail}
-                  </p>
-                )}
-                {item.customDetail && (
-                  <div className="">
-                    {item.customDetail}
                   </div>
                 )}
+                {item.customDetail && item.customDetail}
               </section>
               {index !== informationPage.length - 1 && (
                 <Separator className="my-8" />

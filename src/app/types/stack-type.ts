@@ -4,6 +4,8 @@ export type StackName =
   | "Tailwind"
   | "Antd"
   | "ExpressJS"
+  | "SocketIo"
   | "NestJS"
   | "Shadcn"
+  | "Docker"
   | "Mssql";
