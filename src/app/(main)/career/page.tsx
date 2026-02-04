@@ -22,7 +22,7 @@ export default function Page() {
         <div className="mt-4 space-y-4">
           {CareerData.map((item) => (
             <Fragment key={item.id}>
-              <div className="p-6 border rounded-md w-full flex flex-col items-start sm:items-center sm:flex-row gap-4 bg-card hover:bg-secondary duration-300">
+              <div className="p-6 border rounded-md w-full flex flex-col items-start sm:items-center sm:flex-row gap-4 hover:bg-card duration-300">
                 {/* Logo / Image */}
                 <div className="w-20 h-20 rounded-md bg-white flex items-center justify-center p-2">
                   <Image

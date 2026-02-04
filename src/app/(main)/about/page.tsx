@@ -7,6 +7,8 @@ import { InformationType } from "@/app/types/informaion-type";
 import { useScrollSpy } from "@/hooks/useScrollSpy";
 
 import { SkillsTabs } from "@/components/skills/skills-tabs";
+import { getTechImage } from "@/lib/teck-stack";
+import { STACKS } from "@/app/types/stack-type";
 
 export default function Page() {
   const informationPage: InformationType[] = [
@@ -41,8 +43,12 @@ export default function Page() {
       header: "สกิล",
       headerIcon: Terminal,
       customDetail: (
-        <div className="mt-4 ">
-          <SkillsTabs />
+        <div className="mt-4 flex gap-4 items-center flex-wrap">
+          {STACKS.map((tech) => (
+            <span key={tech} title={tech}>
+              {getTechImage(tech, 40)}
+            </span>
+          ))}
         </div>
       ),
     },
@@ -70,9 +76,7 @@ export default function Page() {
                   </p>
                 )}
                 {item.customDetail && (
-                  <div className="">
-                    {item.customDetail}
-                  </div>
+                  <div className="">{item.customDetail}</div>
                 )}
               </section>
               {index !== informationPage.length - 1 && (

@@ -78,10 +78,6 @@ export default function CareerDialog({ open, close, data }: CareerDataProp) {
 
                       {project.techStack?.length ? (
                         <div className="mt-3 flex items-center gap-3">
-                          <span className="text-xs font-medium text-muted-foreground whitespace-nowrap">
-                            Tech Stack
-                          </span>
-
                           <div className="flex flex-wrap items-center gap-2">
                             {project.techStack.map((tech) => (
                               <span key={tech} title={tech}>
