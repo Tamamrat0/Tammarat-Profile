@@ -6,7 +6,6 @@ import { Terminal } from "lucide-react";
 import { InformationType } from "@/app/types/informaion-type";
 import { useScrollSpy } from "@/hooks/useScrollSpy";
 
-import { SkillsTabs } from "@/components/skills/skills-tabs";
 import { getTechImage } from "@/lib/teck-stack";
 import { STACKS } from "@/app/types/stack-type";
 

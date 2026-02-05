@@ -6,6 +6,7 @@
 
 generator client {
   provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
 }
 
 datasource db {
@@ -21,8 +22,8 @@ model Personal {
   gitLink     String
   phoneNumber String
 
-  introduceId Int             @unique
-  introduce   IntroduceDetail @relation(fields: [introduceId], references: [id])
+  introduceId Int?             @unique
+  introduce   IntroduceDetail? @relation(fields: [introduceId], references: [id])
 
   skills    PersonalSkill[]
   education EducationDetail[]
@@ -37,6 +38,7 @@ model Skill {
   imagePath   String
 
   personalSkills PersonalSkill[]
+  projectSkills  ProjectSkill[]
 }
 
 model PersonalSkill {
@@ -47,6 +49,16 @@ model PersonalSkill {
   skill    Skill    @relation(fields: [skillId], references: [id], onDelete: Cascade)
 
   @@id([personalId, skillId])
+}
+
+model ProjectSkill {
+  projectId Int
+  skillId   Int
+
+  project Projects @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  skill   Skill    @relation(fields: [skillId], references: [id], onDelete: Cascade)
+
+  @@id([projectId, skillId])
 }
 
 model IntroduceDetail {
@@ -91,15 +103,15 @@ model Career {
 }
 
 model Projects {
-  id          Int     @id @default(autoincrement())
+  id          Int            @id @default(autoincrement())
   name        String
   description String?
-  techStack   Json
-  overview    String?
-  role        String?
-  background  String?
-  problem     String?
-  solution    String?
+  techStack   ProjectSkill[]
+  overview    Json?
+  role        Json?
+  background  Json?
+  problem     Json?
+  solution    Json?
   link        String?
   attachments Json?
 
