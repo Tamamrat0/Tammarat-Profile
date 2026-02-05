@@ -9,6 +9,7 @@ export interface ProjectItem {
   role?: string[];
   background?: string[];
   problem?: string[];
+  solve?:string[];
   techStack?: StackName[];
   attachments?: Attachments[];
 }

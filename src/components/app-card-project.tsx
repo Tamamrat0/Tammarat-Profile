@@ -5,19 +5,24 @@ import { ArrowRight } from "lucide-react";
 import { ProjectItem } from "@/app/types/project-type";
 import { useEffect } from "react";
 import { getTechImage } from "@/lib/teck-stack";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface CardProjectProp {
   item: ProjectItem;
   activeId: string | null;
   setActiveId: React.Dispatch<React.SetStateAction<string | null>>;
+  onclick: () => void;
 }
 
 export default function CardProject({
   item,
   activeId,
   setActiveId,
+  onclick,
 }: CardProjectProp) {
   const isActive = activeId === item.id;
+
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const close = () => setActiveId(null);
@@ -25,13 +30,18 @@ export default function CardProject({
     return () => window.removeEventListener("scroll", close);
   }, [setActiveId]);
 
+  const handleCardClick = () => {
+    if (!isMobile) return;
+    setActiveId(isActive ? null : item.id);
+  };
+
   return (
     <div
       tabIndex={0}
-      onClick={() => setActiveId(isActive ? null : item.id)}
+      onClick={handleCardClick}
       onBlur={() => setActiveId(null)}
       className={`
-        border rounded-md flex flex-col w-full h-80 overflow-hidden cursor-pointer transition group
+        border rounded-md flex flex-col w-full h-80 overflow-hidden transition group
         ${isActive ? "bg-secondary/50" : ""}
       `}
     >
@@ -60,11 +70,8 @@ export default function CardProject({
           `}
         >
           <button
-            className="flex items-center gap-2 text-white text-sm font-medium"
-            onClick={(e) => {
-              e.stopPropagation();
-              // navigate / open modal
-            }}
+            className="flex items-center gap-2 text-white text-sm font-medium cursor-pointer"
+            onClick={onclick}
           >
             รายละเอียดเพิ่มเติม <ArrowRight className="w-4 h-4" />
           </button>

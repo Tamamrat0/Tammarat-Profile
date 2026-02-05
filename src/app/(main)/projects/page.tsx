@@ -4,15 +4,14 @@ import { Separator } from "@/components/ui/separator";
 import { Layers } from "lucide-react";
 import { InformationType } from "@/app/types/informaion-type";
 import { useScrollSpy } from "@/hooks/useScrollSpy";
-import { CareerData } from "../career/career-data";
 import { ProjectData } from "./project-data";
-import { CareerItem } from "@/app/types/career-type";
-import CareerDialog from "@/components/career-dialog";
 import CardProject from "@/components/app-card-project";
+import { ProjectItem } from "@/app/types/project-type";
+import ProjectDialog from "@/components/project-dialog";
 
 export default function Page() {
-  const [openDetail, setOpenDetail] = useState(false);
-  const [detailCareer, setDetailCareer] = useState<CareerItem>();
+  const [openProject, setOpenProject] = useState(false);
+  const [detailProject, setDetailProject] = useState<ProjectItem>();
   const [activeCardId, setActiveCardId] = useState<string | null>(null);
 
   const informationPage: InformationType[] = [
@@ -31,6 +30,7 @@ export default function Page() {
                   item={item}
                   activeId={activeCardId}
                   setActiveId={setActiveCardId}
+                  onclick={() => handleOpenDialog(item.id)}
                 />
               </Fragment>
             ))}
@@ -41,10 +41,11 @@ export default function Page() {
   ];
 
   function handleOpenDialog(id: string) {
-    const result = CareerData.find((i) => i.id === id);
+    const result = ProjectData.find((i) => i.id === id);
     if (!result) return;
-    setDetailCareer(result);
-    setOpenDetail(true);
+    setActiveCardId(null)
+    setDetailProject(result);
+    setOpenProject(true);
   }
 
   const sectionIds = informationPage.map((item) => item.id);
@@ -52,10 +53,10 @@ export default function Page() {
 
   return (
     <div className="flex w-full py-4">
-      <CareerDialog
-        open={openDetail}
-        close={setOpenDetail}
-        data={detailCareer}
+      <ProjectDialog
+        open={openProject}
+        close={setOpenProject}
+        data={detailProject}
       />
       {/* Content */}
       <main className="flex-1 min-h-screen px-6 w-full sm:w-208">
