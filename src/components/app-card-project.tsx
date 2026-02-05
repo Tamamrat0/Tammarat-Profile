@@ -5,7 +5,6 @@ import { ArrowRight } from "lucide-react";
 import { ProjectItem } from "@/app/types/project-type";
 import { useEffect } from "react";
 import { getTechImage } from "@/lib/teck-stack";
-import { useIsMobile } from "@/hooks/use-mobile";
 
 interface CardProjectProp {
   item: ProjectItem;
@@ -22,8 +21,6 @@ export default function CardProject({
 }: CardProjectProp) {
   const isActive = activeId === item.id;
 
-  const isMobile = useIsMobile();
-
   useEffect(() => {
     const close = () => setActiveId(null);
     window.addEventListener("scroll", close);
@@ -31,7 +28,6 @@ export default function CardProject({
   }, [setActiveId]);
 
   const handleCardClick = () => {
-    if (!isMobile) return;
     setActiveId(isActive ? null : item.id);
   };
 
@@ -54,12 +50,13 @@ export default function CardProject({
           `}
         >
           <Image
-            src="/images/success_2024.jpg"
+            src="/images/success_2024s.jpg"
             alt="Company Logo"
             width={1024}
             height={1024}
             className="object-cover w-full h-full"
           />
+          {/* <ImageSlider /> */}
         </div>
 
         {/* Overlay */}

@@ -43,7 +43,8 @@ export default function Page() {
   function handleOpenDialog(id: string) {
     const result = ProjectData.find((i) => i.id === id);
     if (!result) return;
-    setActiveCardId(null)
+    if (!activeCardId) return;
+    setActiveCardId(null);
     setDetailProject(result);
     setOpenProject(true);
   }
