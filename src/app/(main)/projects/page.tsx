@@ -40,10 +40,20 @@ export default function Page() {
     },
   ];
 
+  function isMobileDevice() {
+    return window.matchMedia("(pointer: coarse)").matches;
+  }
+
   function handleOpenDialog(id: string) {
     const result = ProjectData.find((i) => i.id === id);
     if (!result) return;
-    if (!activeCardId) return;
+
+    const isMobile = isMobileDevice();
+    if (isMobile && activeCardId !== id) {
+      setActiveCardId(id);
+      return;
+    }
+
     setActiveCardId(null);
     setDetailProject(result);
     setOpenProject(true);
