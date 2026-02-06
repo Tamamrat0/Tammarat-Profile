@@ -1,10 +1,24 @@
-export async function GET(params: Request) {
-  const users = [
-    { id: 1, name: "Alice" },
-    { id: 2, name: "Bob" },
-  ];
-  return new Response(JSON.stringify(users), {
-    status: 200,
-    headers: { "Content-Type": "application/json" },
+import prisma from "@/lib/prisma";
+import { NextRequest, NextResponse } from "next/server";
+
+export async function GET(req: NextRequest) {
+  const searchParams = req.nextUrl.searchParams;
+  console.log(searchParams);
+  const id = Number(searchParams.get("id"));
+
+  if (!id) {
+    return NextResponse.json({ message: "Missing id" }, { status: 400 });
+  }
+
+  const personal = await prisma.personal.findUnique({
+    where: {
+      id,
+    },
   });
+
+  if (!personal) {
+    return NextResponse.json({ message: "Not found" }, { status: 404 });
+  }
+
+  return NextResponse.json(personal, { status: 200 });
 }
