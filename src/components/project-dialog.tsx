@@ -12,6 +12,7 @@ import {
   ArrowRight,
   BicepsFlexed,
   Briefcase,
+  Images,
   Layers,
   LayoutDashboard,
   Megaphone,
@@ -39,7 +40,7 @@ export default function ProjectDialog({ open, close, data }: ProjectDataProp) {
           <DialogTitle className=" flex items-center gap-2">
             {data?.name}
           </DialogTitle>
-          {/* <DialogDescription>{data?.description}</DialogDescription> */}
+          <DialogDescription className="text-xs">{data?.description}</DialogDescription>
         </DialogHeader>
         <div className="scrollbar-hide max-h-[50vh] overflow-y-auto px-4 space-y-6">
           <section className="space-y-4">
@@ -120,6 +121,25 @@ export default function ProjectDialog({ open, close, data }: ProjectDataProp) {
                   ))}
                 </ul>
               ) : null}
+            </section>
+          </section>
+          <Separator />
+          <section className="grid gap-4 sm:grid-cols-1">
+            <section className="space-y-2">
+              <h3 className="text-lg font-semibold flex items-center gap-2">
+                <Images className="w-5 h-5" />
+                แกลเลอรี่
+              </h3>
+              <div>2</div>
+              {/* {data?.solve?.length ? (
+                <ul className="space-y-3 list-disc pl-5 text-sm leading-relaxed text-muted-foreground">
+                  {data.solve.map((item, index) => (
+                    <li key={index} className="text-foreground">
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              ) : null} */}
             </section>
           </section>
         </div>

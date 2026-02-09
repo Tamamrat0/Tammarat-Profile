@@ -13,7 +13,7 @@ export default function AppFooter() {
           </div>
 
           {/* เนื้อหา */}
-          <div className="space-y-3">
+          {/* <div className="space-y-3">
             <p className="text-sm font-medium">เนื้อหา</p>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>แนะนำตัว</li>
@@ -21,7 +21,7 @@ export default function AppFooter() {
               <li>ประสบการณ์ทำงาน</li>
               <li>โปรเจค</li>
             </ul>
-          </div>
+          </div> */}
 
           {/* ติดต่อ */}
           <div className="space-y-3">
@@ -81,12 +81,46 @@ export default function AppFooter() {
           </div>
 
           {/* คำอธิบาย */}
-          <div className="space-y-3">
-            <p className="text-sm font-medium">เกี่ยวกับเว็บไซต์</p>
-            <p className="text-sm text-muted-foreground">
-              เว็บไซต์นี้จัดทำขึ้นเพื่อแสดงประสบการณ์
-              และผลงานด้านการพัฒนาระบบงานจริง สำหรับใช้งานในองค์กร
+          {/* <div className="space-y-2 col-span-2">
+            <p className="text-sm font-medium">เป้าหมายอาชีพ</p>
+            <p className="text-xs text-muted-foreground leading-relaxed">
+              ตำแหน่งปัจจุบัน: IT Specialist (Internal System) • ประสบการณ์: 3+
+              ปี ในการพัฒนา Web Application สำหรับองค์กร • ความสนใจ:
+              การออกแบบระบบจาก Workflow ธุรกิจ และ ERP Integration •
+              เป้าหมายอาชีพ: เติบโตในสาย Full Stack Developer
+              ในทีมพัฒนาซอฟต์แวร์
             </p>
+          </div> */}
+          <div className="space-y-2 col-span-1 md:col-span-2">
+            <p className="text-sm font-medium">
+              เป้าหมายอาชีพ{" "}
+              <span className="text-xs text-muted-foreground">
+                Career Direction
+              </span>
+            </p>
+
+            <ul className="space-y-1 text-xs text-muted-foreground leading-relaxed list-disc list-inside">
+              <li>
+                <span className="font-medium text-foreground">
+                  ตำแหน่งปัจจุบัน:
+                </span>{" "}
+                IT Specialist (Internal System)
+              </li>
+              <li>
+                <span className="font-medium text-foreground">ประสบการณ์:</span>{" "}
+                3+ ปี ในการพัฒนา Web Application สำหรับองค์กร
+              </li>
+              <li>
+                <span className="font-medium text-foreground">ความสนใจ:</span>{" "}
+                การออกแบบระบบจาก Workflow ธุรกิจ และ ERP Integration
+              </li>
+              <li>
+                <span className="font-medium text-foreground">
+                  เป้าหมายอาชีพ:
+                </span>{" "}
+                เติบโตในสาย Full Stack Developer ในทีมพัฒนาซอฟต์แวร์
+              </li>
+            </ul>
           </div>
         </div>
 

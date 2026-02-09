@@ -1,14 +1,17 @@
 export const STACKS = [
+  "JavaScript",
+  "TypeScript",
   "React",
   "NextJS",
   "Tailwind",
   "Antd",
-  "ExpressJS",
-  "SocketIo",
-  "NestJS",
   "Shadcn",
-  "Docker",
+  "ExpressJS",
+  "NestJS",
   "Mssql",
+  "SocketIo",
+  "Docker",
+  "SAP",
 ] as const;
 
 export type StackName = (typeof STACKS)[number];

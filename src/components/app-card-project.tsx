@@ -50,7 +50,7 @@ export default function CardProject({
           `}
         >
           <Image
-            src="/images/success_2024s.jpg"
+            src="/images/success_2024.jpg"
             alt="Company Logo"
             width={1024}
             height={1024}

@@ -38,6 +38,8 @@ import { StackName } from "@/app/types/stack-type";
 import { TechHint } from "@/components/TechHint";
 
 const TECH_IMAGE_MAP: Record<StackName, string> = {
+  TypeScript: "/icons/typescript.png",
+  JavaScript: "/icons/javascript.png",
   React: "/icons/react.png",
   NextJS: "/icons/nextjs.png",
   Tailwind: "/icons/tailwindcss.png",
@@ -48,6 +50,7 @@ const TECH_IMAGE_MAP: Record<StackName, string> = {
   Mssql: "/icons/mssql.png",
   Docker: "/icons/docker.png",
   SocketIo: "/icons/socketio.svg",
+  SAP: "/icons/sapb1.png",
 };
 
 export function getTechImage(tech: StackName, size: number = 35): ReactNode {
