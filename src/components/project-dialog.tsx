@@ -9,21 +9,16 @@ import {
 } from "@/components/ui/dialog";
 
 import {
-  ArrowRight,
   BicepsFlexed,
-  Briefcase,
   Images,
-  Layers,
   LayoutDashboard,
   Megaphone,
   Milestone,
-  PartyPopper,
   TriangleAlert,
 } from "lucide-react";
 import { Separator } from "./ui/separator";
 import { ImagePreview } from "./app-image-preview";
 
-import { getTechImage } from "@/lib/teck-stack";
 import { ProjectItem } from "@/app/types/project-type";
 
 interface ProjectDataProp {
@@ -40,7 +35,9 @@ export default function ProjectDialog({ open, close, data }: ProjectDataProp) {
           <DialogTitle className=" flex items-center gap-2">
             {data?.name}
           </DialogTitle>
-          <DialogDescription className="text-xs">{data?.description}</DialogDescription>
+          <DialogDescription className="text-xs">
+            {data?.description}
+          </DialogDescription>
         </DialogHeader>
         <div className="scrollbar-hide max-h-[50vh] overflow-y-auto px-4 space-y-6">
           <section className="space-y-4">
@@ -130,16 +127,18 @@ export default function ProjectDialog({ open, close, data }: ProjectDataProp) {
                 <Images className="w-5 h-5" />
                 แกลเลอรี่
               </h3>
-              <div>2</div>
-              {/* {data?.solve?.length ? (
-                <ul className="space-y-3 list-disc pl-5 text-sm leading-relaxed text-muted-foreground">
-                  {data.solve.map((item, index) => (
-                    <li key={index} className="text-foreground">
-                      {item}
-                    </li>
+              {data?.attachments?.length ? (
+                <div className="grid gap-4 sm:grid-cols-2">
+                  {data?.attachments.map((item) => (
+                    <div key={item.imagePath} className="rounded-lg p-4">
+                      {item.imagePath && (
+                        <ImagePreview src={item.imagePath} alt={item.detail} />
+                      )}
+                      <p className="text-sm mt-2 text-center">{item.detail}</p>
+                    </div>
                   ))}
-                </ul>
-              ) : null} */}
+                </div>
+              ) : null}
             </section>
           </section>
         </div>

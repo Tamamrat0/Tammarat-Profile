@@ -21,6 +21,12 @@ export default function CardProject({
 }: CardProjectProp) {
   const isActive = activeId === item.id;
 
+  const banner = (
+    item.attachments?.length
+      ? item.attachments[0].imagePath
+      : "/images/placeholder.jpg"
+  ) as string;
+
   useEffect(() => {
     const close = () => setActiveId(null);
     window.addEventListener("scroll", close);
@@ -50,7 +56,8 @@ export default function CardProject({
           `}
         >
           <Image
-            src="/images/success_2024.jpg"
+            src={banner}
+            loading="eager"
             alt="Company Logo"
             width={1024}
             height={1024}
@@ -67,10 +74,10 @@ export default function CardProject({
           `}
         >
           <button
-            className="flex items-center gap-2 text-white text-sm font-medium cursor-pointer"
+            className="flex items-center gap-2 text-primary text-sm font-medium cursor-pointer"
             onClick={onclick}
           >
-            รายละเอียดเพิ่มเติม <ArrowRight className="w-4 h-4" />
+            รายละเอียดเพิ่มเติม <ArrowRight className="w-4 h-4 text-primary" />
           </button>
         </div>
       </div>

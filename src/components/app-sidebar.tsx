@@ -14,9 +14,10 @@ import {
   Menu,
 } from "lucide-react";
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar } from "@/components/ui/avatar";
 
 import { motion } from "framer-motion";
+import { ImagePreview } from "./app-image-preview";
 
 export default function AppSidebar() {
   const [smOpenMenu, setSmOpenMenu] = useState(false);
@@ -53,8 +54,7 @@ export default function AppSidebar() {
         <div className="flex flex-col w-full gap-3 items-center border-b">
           <div className="relative">
             <Avatar className="bg-blue-200 w-20 h-20">
-              <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-              <AvatarFallback>CN</AvatarFallback>
+              <ImagePreview src={"/images/avatar.jpg"} alt={"avatar"} />
             </Avatar>
 
             {/* สร้าง Badge เองด้วย div */}

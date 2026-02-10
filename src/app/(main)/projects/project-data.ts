@@ -46,8 +46,64 @@ export const ProjectData: ProjectItem[] = [
     link: "",
     attachments: [
       {
-        imagePath: "/images/success_2024.jpg",
-        detail: "ได้รับรางวัลพนังงานดีเด่นประจำปี 2024",
+        imagePath: "/projects/v1-ticketview-IT.jpg",
+        detail: "หน้ารวมรายการแจ้งซ่อมของแผนก IT",
+      },
+      {
+        imagePath: "/projects/v1-ticketview-PE.jpg",
+        detail: "หน้ารวมรายการแจ้งซ่อมของแผนก PE",
+      },
+      {
+        imagePath: "/projects/v1-ticket.jpg",
+        detail: "หน้าติดตามสถานะการแจ้งซ่อมของผู้ใช้",
+      },
+      {
+        imagePath: "/projects/v1-ticket-dashboard.jpg",
+        detail: "หน้าสรุปรวมรายการแจ้งซ่อม สำหรับนำไปวิเคราะห์",
+      },
+      {
+        imagePath: "/projects/v1-plm.jpg",
+        detail: "หน้าปฏิทินแจ้งเตือนรอบทำความสะอาดทรัพย์สิน",
+      },
+      {
+        imagePath: "/projects/v1-plm-detail.jpg",
+        detail: "หน้าปฏิทินแจ้งเตือนรอบทำความสะอาดทรัพย์สิน - รายละเอียด",
+      },
+      {
+        imagePath: "/projects/v1-booking1.jpg",
+        detail: "หน้าจองห้องประชุม 1",
+      },
+      {
+        imagePath: "/projects/v1-booking2.jpg",
+        detail: "หน้าจองห้องประชุม 2",
+      },
+      {
+        imagePath: "/projects/v1-quotation1.jpg",
+        detail: "หน้ารายการใบเสนอราคาทั้งหมด",
+      },
+      {
+        imagePath: "/projects/v1-quotation2.jpg",
+        detail: "หน้าคีย์ข้อมูลใบเสนอราคา 1",
+      },
+      {
+        imagePath: "/projects/v1-quotation3.jpg",
+        detail: "หน้าคีย์ข้อมูลใบเสนอราคา 2",
+      },
+      {
+        imagePath: "/projects/v1-quotation4.jpg",
+        detail: "ตัวอย่างการทำเอกสารใบเสนอราคา",
+      },
+      {
+        imagePath: "/projects/v1-pdf1.jpg",
+        detail: "ตัวอย่างการทำเอกสาร PDF จาก PDFKIT - 1",
+      },
+      {
+        imagePath: "/projects/v1-pdf2.jpg",
+        detail: "ตัวอย่างการทำเอกสาร PDF จาก PDFKIT - 2",
+      },
+      {
+        imagePath: "/projects/v1-pdf3.jpg",
+        detail: "ตัวอย่างการทำเอกสาร PDF จาก PDFKIT - 3",
       },
     ],
   },
@@ -96,13 +152,20 @@ export const ProjectData: ProjectItem[] = [
     link: "",
     attachments: [
       {
-        imagePath: "",
-        detail: "หน้าจอ Dashboard และภาพรวมการจัดการระบบใน Wann System v.2",
+        imagePath: "/projects/v2-employees.jpg",
+        detail: "หน้าแสดงผู้ใช้งานทั้งหมด",
       },
       {
-        imagePath: "",
-        detail:
-          "ตัวอย่างหน้าจอการตั้งค่า User Permission และการแจ้งเตือนแบบ Real-time",
+        imagePath: "/projects/v2-employee.jpg",
+        detail: "หน้าแสดงและแก้ไขข้อมูลผู้ใช้งาน",
+      },
+      {
+        imagePath: "/projects/v2-role.jpg",
+        detail: "หน้าการตั้งค่ากลุ่มมสิทธืการเข้าใช้งาน",
+      },
+      {
+        imagePath: "/projects/v2-notification-config.jpg",
+        detail: "หน้าการตั้งค่าชุดการแจ้งเตือน",
       },
     ],
   },
@@ -141,9 +204,9 @@ export const ProjectData: ProjectItem[] = [
     link: "",
     attachments: [
       {
-        imagePath: "",
+        imagePath: "/projects/wannsmart.png",
         detail:
-          "เอกสาร Workflow และสรุป Requirement ที่ส่งต่อให้ทีมพัฒนาภายนอก",
+          "ตัวอย่างหน้าแรกของโปรแกรม",
       },
     ],
   },

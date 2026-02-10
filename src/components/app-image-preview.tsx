@@ -6,6 +6,7 @@ import {
   DialogContent,
   DialogTrigger,
   DialogTitle,
+  DialogDescription,
 } from "@/components/ui/dialog";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 
@@ -23,6 +24,9 @@ export function ImagePreview({ src, alt }: Props) {
             src={src}
             alt={alt ?? "preview"}
             fill
+            loading="eager"
+            // sizes="100vw"
+            sizes="(max-width: 1024px) 100vw, 1024px"
             className="object-cover transition hover:scale-105"
           />
         </div>
@@ -31,6 +35,9 @@ export function ImagePreview({ src, alt }: Props) {
       <DialogContent className="max-w-7xl! border-none bg-transparent shadow-none">
         <VisuallyHidden>
           <DialogTitle>{alt ?? "Image preview"}</DialogTitle>
+          <DialogDescription>
+            Enlarged preview of the selected image
+          </DialogDescription>
         </VisuallyHidden>
 
         <div className="relative max-h-[80vh] w-full">
