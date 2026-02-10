@@ -5,7 +5,7 @@ export const ProjectData: ProjectItem[] = [
     id: "1",
     name: "WannSystem v.1",
     description:
-      "ระบบบริหารจัดการภายในองค์กรแบบ End-to-End ที่ถูกออกแบบและพัฒนาขึ้นเพียงผู้เดียว เพื่อเปลี่ยนผ่านการทำงานจากระบบเอกสาร (Paper-based) สู่ระบบดิจิทัล ครอบคลุมงานแจ้งซ่อม ข้อร้องเรียน และสนับสนุนงานฝ่ายการตลาด",
+      "ระบบบริหารจัดการภายในแบบ Full-stack พัฒนาขึ้นเพื่อเปลี่ยนงานเอกสารสู่ระบบออนไลน์ ครอบคลุมงานแจ้งซ่อมและสนับสนุนฝ่ายการตลาด พร้อมเชื่อมต่อข้อมูลกับ SAP B1",
     techStack: [
       "React",
       "JavaScript",
@@ -173,7 +173,7 @@ export const ProjectData: ProjectItem[] = [
     id: "3",
     name: "WannSmart",
     description:
-      "โปรเจกต์ระบบบริหารจัดการงานแผนก RD, QC และ Planning ซึ่งเป็นระบบขนาดใหญ่ที่เน้นการเติมเต็มส่วนที่ SAP ไม่ครอบคลุม โดยผมทำหน้าที่เป็นตัวกลาง (Project Coordinator) ควบคุม Workflow และดูแลการเชื่อมต่อข้อมูลจาก SAP ทั้งหมด",
+      "ระบบบริหารงาน RD, QC และ Planning โดยรับบทบาท Project Coordinator ควบคุม Workflow ออกแบบโครงสร้างข้อมูล และจัดการการเชื่อมต่อกับระบบ SAP ร่วมกับทีมภายนอก",
     techStack: [],
     overview: [
       "รับผิดชอบการวางโครงสร้างระบบตั้งแต่ต้น (Requirement Gathering) เพื่อส่งต่อให้ทีมพัฒนาภายนอก",
@@ -205,8 +205,7 @@ export const ProjectData: ProjectItem[] = [
     attachments: [
       {
         imagePath: "/projects/wannsmart.png",
-        detail:
-          "ตัวอย่างหน้าแรกของโปรแกรม",
+        detail: "ตัวอย่างหน้าแรกของโปรแกรม",
       },
     ],
   },
