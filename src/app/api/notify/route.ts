@@ -55,43 +55,39 @@
 
 import { NextRequest, NextResponse, userAgent } from "next/server";
 
-export const runtime = "edge";
-
-const tempCache = new Set<string>();
-
 export async function POST(req: NextRequest) {
   try {
+    // 🔎 Get real IP
     const forwarded = req.headers.get("x-forwarded-for");
     const ip =
       req.headers.get("x-real-ip") ||
       forwarded?.split(",")[0]?.trim() ||
       "unknown";
 
-    if (ip !== "unknown" && tempCache.has(ip)) {
-      return NextResponse.json({ ok: true, message: "Rate limited" });
-    }
-
-    if (ip !== "unknown") {
-      tempCache.add(ip);
-      setTimeout(() => tempCache.delete(ip), 60000);
-    }
-
+    // 🌍 Location (Vercel headers)
     const city = req.headers.get("x-vercel-ip-city") || "Unknown City";
     const country = req.headers.get("x-vercel-ip-country") || "Unknown Country";
 
+    // 🖥 Device / Browser
     const { device, browser, os } = userAgent(req);
 
     let deviceType = "💻 Desktop";
     if (device.type === "mobile") deviceType = "📱 Mobile";
     if (device.type === "tablet") deviceType = "📱 Tablet";
 
+    // 🔐 ENV
     const accessToken = process.env.LINE_ACCESS_TOKEN;
     const userId = process.env.LINE_USER_ID;
 
     if (!accessToken || !userId) {
-      return NextResponse.json({ error: "Config missing" }, { status: 500 });
+      console.error("Missing LINE environment variables");
+      return NextResponse.json(
+        { error: "Server configuration error" },
+        { status: 500 },
+      );
     }
 
+    // 📩 Send to LINE
     const lineRes = await fetch("https://api.line.me/v2/bot/message/push", {
       method: "POST",
       headers: {
@@ -104,11 +100,11 @@ export async function POST(req: NextRequest) {
           {
             type: "text",
             text: `🎯 New Visitor
-
-📍 ${city}, ${country}
-🌐 ${browser.name} (${os.name})
-🖥 ${deviceType}
-🕒 ${new Date().toLocaleString("th-TH", {
+📍 Location: ${city}, ${country}
+🌐 Browser: ${browser.name ?? "Unknown"} (${os.name ?? "Unknown"})
+🖥 Device: ${deviceType}
+🌎 IP: ${ip}
+🕒 Time: ${new Date().toLocaleString("th-TH", {
               timeZone: "Asia/Bangkok",
             })}`,
           },
@@ -117,7 +113,8 @@ export async function POST(req: NextRequest) {
     });
 
     if (!lineRes.ok) {
-      console.error("LINE Error:", await lineRes.text());
+      const errorText = await lineRes.text();
+      console.error("LINE API Error:", errorText);
     }
 
     return NextResponse.json({ ok: true });
