@@ -57,42 +57,42 @@ import { NextRequest, NextResponse, userAgent } from "next/server";
 
 export const runtime = "edge";
 
-// ตัวแปรเก็บ IP ชั่วคราวใน Memory (กัน Spam เบื้องต้น)
 const tempCache = new Set<string>();
 
 export async function POST(req: NextRequest) {
   try {
-    // แก้ปัญหา req.ip ด้วยการใช้ Header แทน
+    const forwarded = req.headers.get("x-forwarded-for");
     const ip =
       req.headers.get("x-real-ip") ||
-      req.headers.get("x-forwarded-for")?.split(",")[0] ||
+      forwarded?.split(",")[0]?.trim() ||
       "unknown";
 
-    // Anti-spam เบื้องต้น
     if (ip !== "unknown" && tempCache.has(ip)) {
       return NextResponse.json({ ok: true, message: "Rate limited" });
     }
 
     if (ip !== "unknown") {
       tempCache.add(ip);
-      setTimeout(() => tempCache.delete(ip), 60000); // กันซ้ำใน 1 นาที
+      setTimeout(() => tempCache.delete(ip), 60000);
     }
 
-    // ดึงข้อมูลอื่นๆ
     const city = req.headers.get("x-vercel-ip-city") || "Unknown City";
     const country = req.headers.get("x-vercel-ip-country") || "Unknown Country";
+
     const { device, browser, os } = userAgent(req);
-    const deviceType = device.type === "mobile" ? "📱 Mobile" : "💻 Desktop";
+
+    let deviceType = "💻 Desktop";
+    if (device.type === "mobile") deviceType = "📱 Mobile";
+    if (device.type === "tablet") deviceType = "📱 Tablet";
 
     const accessToken = process.env.LINE_ACCESS_TOKEN;
     const userId = process.env.LINE_USER_ID;
 
     if (!accessToken || !userId) {
-      console.error("Missing Environment Variables");
       return NextResponse.json({ error: "Config missing" }, { status: 500 });
     }
 
-    await fetch("https://api.line.me/v2/bot/message/push", {
+    const lineRes = await fetch("https://api.line.me/v2/bot/message/push", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -103,11 +103,22 @@ export async function POST(req: NextRequest) {
         messages: [
           {
             type: "text",
-            text: `🎯 New Visitor Tracked\n\n📍 Location: ${city}, ${country}\n🖥️ Platform: ${deviceType}\n🌐 Browser: ${browser.name} (${os.name})\n⏰ Time: ${new Date().toLocaleString("th-TH", { timeZone: "Asia/Bangkok" })}`,
+            text: `🎯 New Visitor
+
+📍 ${city}, ${country}
+🌐 ${browser.name} (${os.name})
+🖥 ${deviceType}
+🕒 ${new Date().toLocaleString("th-TH", {
+              timeZone: "Asia/Bangkok",
+            })}`,
           },
         ],
       }),
     });
+
+    if (!lineRes.ok) {
+      console.error("LINE Error:", await lineRes.text());
+    }
 
     return NextResponse.json({ ok: true });
   } catch (error) {
