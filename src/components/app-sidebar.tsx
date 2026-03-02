@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -46,6 +46,12 @@ export default function AppSidebar() {
       icon: FolderKanban,
     },
   ];
+
+  useEffect(() => {
+    fetch("/api/notify", {
+      method: "POST",
+    });
+  }, []);
 
   return (
     <div>

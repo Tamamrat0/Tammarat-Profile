@@ -91,7 +91,7 @@ export default function AppFooter() {
               ในทีมพัฒนาซอฟต์แวร์
             </p>
           </div> */}
-          <div className="space-y-2 col-span-1 md:col-span-2">
+          {/* <div className="space-y-2 col-span-1 md:col-span-2">
             <p className="text-sm font-medium">
               เป้าหมายอาชีพ{" "}
               <span className="text-xs text-muted-foreground">
@@ -121,7 +121,7 @@ export default function AppFooter() {
                 เติบโตในสาย Full Stack Developer ในทีมพัฒนาซอฟต์แวร์
               </li>
             </ul>
-          </div>
+          </div> */}
         </div>
 
         {/* ล่างสุด */}
