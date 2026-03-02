@@ -100,13 +100,12 @@ export async function POST(req: NextRequest) {
           {
             type: "text",
             text: `🎯 New Visitor
-📍 Location: ${city}, ${country}
-🌐 Browser: ${browser.name ?? "Unknown"} (${os.name ?? "Unknown"})
-🖥 Device: ${deviceType}
-🌎 IP: ${ip}
-🕒 Time: ${new Date().toLocaleString("th-TH", {
-              timeZone: "Asia/Bangkok",
-            })}`,
+            🌐 Browser: ${browser.name ?? "Unknown"} (${os.name ?? "Unknown"})
+            🖥 Device: ${deviceType}
+            🌎 IP: ${ip}
+            🕒 Time: ${new Date().toLocaleString("th-TH", {
+                        timeZone: "Asia/Bangkok",
+                        })}`,
           },
         ],
       }),
