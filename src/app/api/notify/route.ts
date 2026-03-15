@@ -69,7 +69,7 @@
 // }
 import { NextRequest, NextResponse, userAgent } from "next/server";
 
-export const runtime = "edge";
+// export const runtime = "edge";
 
 // 🧠 Memory rate limit (Edge reset ได้ แต่ช่วยลด spam ได้ระดับหนึ่ง)
 const tempCache = new Map<string, number>();
