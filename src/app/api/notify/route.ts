@@ -93,7 +93,9 @@ export async function POST(req: NextRequest) {
     tempCache.set(ip, Date.now());
 
     // 🌍 Location
-    const city = req.headers.get("x-vercel-ip-city") || "Unknown";
+    const cityRaw = req.headers.get("x-vercel-ip-city");
+    // const city = req.headers.get("x-vercel-ip-city") || "Unknown";
+    const city = cityRaw ? decodeURIComponent(cityRaw) : "Unknown";
     const country = req.headers.get("x-vercel-ip-country") || "Unknown";
 
     // 🧠 Referrer
@@ -125,8 +127,6 @@ export async function POST(req: NextRequest) {
 
 📍 Location: ${city}, ${country}
 🌎 IP: ${ip}
-
-🔗 Referrer: ${referrer}
 
 ⏰ Time: ${new Date().toLocaleString("th-TH", {
       timeZone: "Asia/Bangkok",
