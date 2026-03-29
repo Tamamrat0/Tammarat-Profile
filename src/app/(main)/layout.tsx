@@ -1,5 +1,4 @@
 import AppFooter from "@/components/app-footer";
-// import AppNav from "@/components/app-navbar-top";
 import AppSidebar from "@/components/app-sidebar";
 
 export default function MainLayout({

@@ -9,6 +9,7 @@ export const STACKS = [
   "ExpressJS",
   "NestJS",
   "Mssql",
+  "MongoDB",
   "SocketIo",
   "Docker",
   "SAP",

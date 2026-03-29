@@ -19,35 +19,31 @@ export default function Page() {
         <div className="mt-4 space-y-4">
           <p className="text-muted-foreground text-base leading-relaxed text-pretty wrap-break-word">
             <span className="inline-block w-8"></span>
-            ผมเป็น IT Specialist ที่ได้รับมอบหมายให้พัฒนา Internal System
-            ภายในองค์กร มีประสบการณ์กว่า 3 ปี ในการแปลง Workflow ทางธุรกิจ
-            ให้เป็นระบบดิจิทัลที่สามารถใช้งานได้จริง รับผิดชอบงานในลักษณะ
-            End-to-End ตั้งแต่การเก็บ Requirement จากผู้ใช้งานหน้างาน
-            การออกแบบโครงสร้างระบบและฐานข้อมูล
-            ไปจนถึงการพัฒนาและปรับปรุงระบบให้ตอบโจทย์การทำงานจริง
-            ประสบการณ์ดังกล่าวทำให้ผมมีความเข้าใจเชิงลึกในมุมมองการใช้งานของผู้ใช้
-            และสามารถออกแบบระบบที่ช่วยอำนวยความสะดวกให้กับการทำงานภายในองค์กรได้ตรงกับการใช้งานจริง
+            ผมชื่อธรรมรัตน์ครับ เป็น Full Stack Developer ที่มีประสบการณ์กว่า 3
+            ปี ในการพัฒนา Internal System ภายในองค์กรธุรกิจจริง ตั้งแต่ออกแบบ
+            Database ไปจนถึง UI ที่ผู้ใช้งานหน้างานใช้จริงทุกวัน
+            ผมรับผิดชอบงานแบบ End-to-End ครอบคลุมทั้ง Frontend, Backend
+            และการเชื่อมต่อระบบ
+            ทำให้มองเห็นภาพรวมของระบบได้ครบทุกมิติและแก้ปัญหาได้โดยไม่ต้องรอคนอื่น
           </p>
 
           <p className="text-muted-foreground text-base leading-relaxed text-pretty wrap-break-word">
             <span className="inline-block w-8"></span>
-            ในด้านความเข้าใจธุรกิจ ผมมีความคุ้นเคยกับกระบวนการทำงานของแผนกต่าง ๆ
-            ในสายการผลิต (Operations) เป็นอย่างดี โดยเข้าใจบทบาท
-            หน้าที่ความรับผิดชอบ และลำดับการส่งต่องานระหว่างแผนกต่าง ๆ
-            ยกเว้นในส่วนของงานด้านบัญชี นอกจากนี้ยังมีประสบการณ์ในการใช้งาน SAP
-            Business One และสามารถดึงข้อมูลจาก SAP มาพัฒนาเป็นระบบเสริม
-            (Satellite System) เพื่อเติมเต็ม Workflow ในส่วนที่ระบบ ERP
-            หลักยังไม่ครอบคลุม
+            จุดที่ทำให้ผมแตกต่างจาก Developer
+            ทั่วไปคือประสบการณ์ทำงานใกล้ชิดกับทีม Operations ทำให้เข้าใจ
+            Workflow และความต้องการที่แท้จริงของผู้ใช้ ไม่ใช่แค่เขียน Code ตาม
+            Spec นอกจากนี้ยังมีประสบการณ์กับ SAP Business One และการพัฒนา
+            Satellite System เพื่อเติมเต็มในส่วนที่ระบบ ERP หลักยังไม่ครอบคลุม
           </p>
 
           <p className="text-muted-foreground text-base leading-relaxed text-pretty wrap-break-word">
             <span className="inline-block w-8"></span>
-            นอกเหนือจากการพัฒนาระบบด้วยตนเอง
-            ผมยังมีประสบการณ์ในการทำหน้าที่เป็นตัวกลางประสานงานโครงการ (Project
-            Coordinator) โดยรับผิดชอบการรวบรวมความต้องการจากผู้ใช้งาน
-            สรุปออกมาเป็น Flow งานที่ชัดเจน
-            รวมถึงติดตามและประสานงานกับทีมพัฒนาภายนอก
-            เพื่อให้การทำงานของทุกฝ่ายเป็นไปอย่างราบรื่นและสอดคล้องกับเป้าหมายขององค์กร
+            ในโครงการล่าสุดผมยังรับบทบาท Project Coordinator ดูแลตั้งแต่การเก็บ
+            Requirement จากผู้ใช้จริง สรุปออกมาเป็น Flow
+            งานที่ทีมพัฒนาภายนอกนำไปใช้ได้เลย
+            และติดตามความคืบหน้าให้สอดคล้องกับเป้าหมายขององค์กร
+            ประสบการณ์ดังกล่าวทำให้ผมเชื่อว่า Developer ที่ดีไม่ใช่แค่คนที่ Code
+            เก่ง แต่ต้องเข้าใจ &ldquo;ปัญหาจริง&rdquo; ที่ต้องการแก้ไขด้วย
           </p>
         </div>
       ),
@@ -58,7 +54,7 @@ export default function Page() {
       headerIcon: Terminal,
       customDetail: (
         <div className="mt-4 flex gap-4 items-center flex-wrap">
-          {STACKS.map((tech) => (
+          {STACKS.filter((i) => i !== "MongoDB").map((tech) => (
             <span key={tech} title={tech}>
               {getTechImage(tech, 40)}
             </span>

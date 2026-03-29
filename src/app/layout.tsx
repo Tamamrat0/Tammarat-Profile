@@ -19,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="th" className="dark">
+    <html lang="th">
       <body className={`${NotoThai.variable} antialiased`}>{children}</body>
     </html>
   );
