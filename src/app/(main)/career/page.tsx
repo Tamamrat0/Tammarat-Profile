@@ -22,7 +22,7 @@ export default function Page() {
         <div className="mt-4 space-y-4">
           {CareerData.map((item) => (
             <Fragment key={item.id}>
-              <div className="p-6 border rounded-md w-full flex flex-col items-start sm:items-center sm:flex-row gap-4 hover:bg-card duration-300">
+              <div className="p-6 border bg-secondary rounded-md w-full flex flex-col items-start sm:items-center sm:flex-row gap-4 hover:bg-card duration-300">
                 {/* Logo / Image */}
                 <div className="w-20 h-20 rounded-md bg-white flex items-center justify-center p-2">
                   <Image
@@ -82,11 +82,11 @@ export default function Page() {
         data={detailCareer}
       />
       {/* Content */}
-      <main className="flex-1 min-h-screen px-6 w-full sm:w-208">
+      <main className="flex-1 min-h-screen px-6 w-full sm:w-208 ">
         <div className="flex flex-col gap-3 w-full mb-8">
           {informationPage.map((item, index) => (
             <Fragment key={item.id}>
-              <section id={item.id} className="scroll-mt-28">
+              <section id={item.id} className="scroll-mt-28 ">
                 <h1 className="text-3xl font-semibold flex items-center gap-4">
                   {item.headerIcon && <item.headerIcon />}
                   {item.headerEmoji && <p>{item.headerEmoji}</p>}
@@ -109,7 +109,7 @@ export default function Page() {
 
       {/* TOC */}
       <aside className="hidden sm:block w-54 relative">
-        <div className="sticky top-29 h-[calc(100vh-8.5rem)]">
+        <div className="sticky top-29">
           <p className="text-sm font-medium">ในหน้านี้</p>
 
           <nav className="mt-4 space-y-2 text-sm">

@@ -21,8 +21,8 @@ export default function Page() {
       headerIcon: Layers,
       normalDetail: "รวมผลงานและโปรเจคที่เคยพัฒนา",
       customDetail: (
-        <div className="mt-4 space-y-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="mt-4 space-y-4 ">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 ">
             {ProjectData.map((item) => (
               <Fragment key={item.id}>
                 <CardProject
@@ -97,7 +97,7 @@ export default function Page() {
 
       {/* TOC */}
       <aside className="hidden sm:block w-54 relative">
-        <div className="sticky top-29 h-[calc(100vh-8.5rem)]">
+        <div className="sticky top-29">
           <p className="text-sm font-medium">ในหน้านี้</p>
 
           <nav className="mt-4 space-y-2 text-sm">

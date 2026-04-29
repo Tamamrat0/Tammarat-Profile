@@ -43,7 +43,7 @@ export default function CardProject({
       onClick={handleCardClick}
       onBlur={() => setActiveId(null)}
       className={`
-        border rounded-md flex flex-col w-full h-80 overflow-hidden transition group
+        border rounded-md flex flex-col w-full h-80 overflow-hidden transition group bg-secondary
         ${isActive ? "bg-secondary/50" : ""}
       `}
     >

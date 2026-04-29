@@ -12,6 +12,7 @@ import {
   Home,
   Mail,
   Menu,
+  Route,
 } from "lucide-react";
 
 import { Avatar } from "@/components/ui/avatar";
@@ -29,6 +30,11 @@ export default function AppSidebar() {
       title: "แนะนำตัว",
       url: "/about",
       icon: Home,
+    },
+    {
+      title: "เส้นทาง",
+      url: "/journey",
+      icon: Route,
     },
     {
       title: "การศึกษา",
@@ -56,7 +62,7 @@ export default function AppSidebar() {
   return (
     <div>
       {/* Desktop */}
-      <div className="hidden  sm:flex flex-col w-40 md:w-63.5 duration-200 bg-background h-[calc(100vh-8.5rem)] overflow-y-auto gap-4 py-6 px-4 sticky top-29">
+      <div className="hidden  sm:flex flex-col w-40 md:w-63.5 duration-200 bg-background gap-4 py-6 px-4 sticky top-29">
         <div className="flex flex-col w-full gap-3 items-center border-b">
           <div className="relative">
             <Avatar className="bg-blue-200 w-20 h-20">

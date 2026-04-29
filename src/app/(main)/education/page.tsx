@@ -53,7 +53,7 @@ export default function Page() {
     <div className="flex w-full py-4">
       {/* Content */}
       <main className="flex-1 min-h-screen px-6 w-full sm:w-208">
-        <div className="flex flex-col gap-3 w-full  mb-8">
+        <div className="flex flex-col gap-3 w-full mb-8">
           {informationPage.map((item, index) => (
             <Fragment key={item.id}>
               <section id={item.id} className="scroll-mt-28">
@@ -79,7 +79,7 @@ export default function Page() {
 
       {/* TOC */}
       <aside className="hidden sm:block w-54 relative">
-        <div className="sticky top-29 h-[calc(100vh-8.5rem)]">
+        <div className="sticky top-29">
           <p className="text-sm font-medium">ในหน้านี้</p>
 
           <nav className="mt-4 space-y-2 text-sm">
