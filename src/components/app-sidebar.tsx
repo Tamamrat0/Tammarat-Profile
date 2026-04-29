@@ -53,11 +53,11 @@ export default function AppSidebar() {
     },
   ];
 
-  useEffect(() => {
-    fetch("/api/notify", {
-      method: "POST",
-    });
-  }, []);
+  // useEffect(() => {
+  //   fetch("/api/notify", {
+  //     method: "POST",
+  //   });
+  // }, []);
 
   return (
     <div>

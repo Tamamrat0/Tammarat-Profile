@@ -155,18 +155,15 @@ export default function Page() {
             href="/journey#intro"
             className="group block rounded-lg border border-primary/30 bg-primary/5 p-6 hover:bg-primary/10 transition-colors"
           >
-            <div className="flex items-center justify-between gap-4">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
               <div className="space-y-1">
                 <p className="text-lg font-semibold text-foreground">
                   อยากรู้จักผมมากกว่านี้?
                 </p>
-                <p className="text-sm text-muted-foreground">
-                  เรื่องราวความสำเร็จและความล้มเหลว จนถึงวันที่กลายเป็น
-                  Full-Stack Developer
-                </p>
+                <p className="text-sm text-muted-foreground">ก่อนจะมาเป็น Full-Stack Developer — ผมผ่านอะไรมาบ้าง</p>
               </div>
-              <span className="flex items-center gap-2 text-sm font-medium text-primary whitespace-nowrap">
-                อ่านเรื่องราวฉบับเต็ม
+              <span className="flex items-center gap-2 text-sm font-medium text-primary whitespace-nowrap self-start sm:self-auto">
+                Go to journey
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </span>
             </div>
