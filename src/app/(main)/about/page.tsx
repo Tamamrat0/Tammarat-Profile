@@ -6,26 +6,29 @@ import { Separator } from "@/components/ui/separator";
 import { ArrowRight, HeartHandshake, Layers, Terminal } from "lucide-react";
 import { InformationType } from "@/app/types/informaion-type";
 import { useScrollSpy } from "@/hooks/useScrollSpy";
+import { Paragraph, Strong } from "@/components/app-text";
 
 import { getTechImage } from "@/lib/teck-stack";
 import { STACKS } from "@/app/types/stack-type";
 
 const SOFT_SKILLS = [
-  "Requirement Gathering",
-  "System Analysis & Design",
-  "Project Coordination",
-  "Cross-team Communication",
-  "Problem Solving",
-  "End-to-End Ownership",
+  "การเก็บและวิเคราะห์ Requirement",
+  "ออกแบบระบบ (System Design)",
+  "ประสานงานและติดตามโครงการ",
+  "สื่อสารและทำงานร่วมกับหลายทีม",
+  "วิเคราะห์และแก้ปัญหาเชิงระบบ",
+  "ดูแลระบบแบบ End-to-End",
+  "การประยุกต์ใช้ AI เพื่อช่วยแก้ปัญหา",
 ];
 
 const DOMAIN_EXPERTISE = [
   "SAP Business One Integration",
-  "ERP / Internal System",
-  "Manufacturing Workflow",
-  "Cosmetics Industry",
-  "Database Design",
-  "Hardware Integration",
+  "ระบบ ERP / Internal System",
+  "Workflow งานผลิต",
+  "ธุรกิจผลิตเครื่องสำอาง",
+  "ออกแบบฐานข้อมูล",
+  "เชื่อมต่อ Hardware",
+  "การนำ AI มาใช้ช่วยวิเคราะห์ข้อมูลและเพิ่มประสิทธิภาพการทำงาน",
 ];
 
 function Badge({ children }: { children: React.ReactNode }) {
@@ -44,34 +47,28 @@ export default function Page() {
       headerEmoji: "👋",
       customDetail: (
         <div className="mt-4 space-y-4">
-          <p className="text-muted-foreground text-base leading-relaxed text-pretty wrap-break-word">
-            <span className="inline-block w-8"></span>
-            ผมชื่อธรรมรัตน์ มนตรี ชื่อเล่น ปลื้ม ครับ เป็น Full Stack Developer
-            ที่มีประสบการณ์กว่า 4 ปี ในการพัฒนา Internal System
-            ภายในองค์กรธุรกิจจริง ตั้งแต่ออกแบบ Database ไปจนถึง UI
-            ที่ผู้ใช้งานหน้างานใช้จริงทุกวัน ผมรับผิดชอบงานแบบ End-to-End
-            ครอบคลุมทั้ง Frontend, Backend และการเชื่อมต่อระบบ
-            ทำให้มองเห็นภาพรวมของระบบได้ครบทุกมิติและแก้ปัญหาได้
-          </p>
+          <Paragraph indent>
+            สวัสดีครับ ผมชื่อธรรมรัตน์ มนตรี (ปลื้ม) อายุ 24 เป็น Full-Stack
+            Developer ที่พัฒนา <Strong>Internal System</Strong>{" "}
+            ในองค์กรธุรกิจจริงมา 4+ ปี ดูแลงานตั้งแต่ Database, Backend,
+            Frontend ไปจนถึงการเชื่อมต่อระบบให้ใช้งานได้จริง
+            รวมถึงการพัฒนาแบบฟอร์มเอกสารให้สอดคล้องกับมาตรฐาน ISO
+          </Paragraph>
 
-          <p className="text-muted-foreground text-base leading-relaxed text-pretty wrap-break-word">
-            <span className="inline-block w-8"></span>
-            จุดที่ทำให้ผมแตกต่างจาก Developer
-            ทั่วไปคือประสบการณ์ทำงานใกล้ชิดกับทีม Operations ทำให้เข้าใจ
-            Workflow และความต้องการที่แท้จริงของผู้ใช้ ไม่ใช่แค่เขียน Code ตาม
-            Spec นอกจากนี้ยังมีประสบการณ์กับ SAP Business One และการพัฒนา
-            Satellite System เพื่อเติมเต็มในส่วนที่ระบบ ERP หลักยังไม่ครอบคลุม
-          </p>
+          <Paragraph indent>
+            ผมทำงานใกล้ชิดกับผู้ใช้งานและหลายแผนกในองค์กร รวมถึงการทำงานร่วมกับ{" "}
+            <Strong>SAP Business One</Strong>
+            ทำให้เข้าใจการทำงานของระบบ ERP ตั้งแต่การขาย การผลิต
+            ไปจนถึงการจัดส่งสินค้า
+          </Paragraph>
 
-          <p className="text-muted-foreground text-base leading-relaxed text-pretty wrap-break-word">
-            <span className="inline-block w-8"></span>
-            ในโครงการล่าสุดผมยังรับบทบาท Project Coordinator ดูแลตั้งแต่การเก็บ
-            Requirement จากผู้ใช้จริง สรุปออกมาเป็น Flow
-            งานที่ทีมพัฒนาภายนอกนำไปใช้ได้เลย
-            และติดตามความคืบหน้าให้สอดคล้องกับเป้าหมายขององค์กร
-            ประสบการณ์ดังกล่าวทำให้ผมเชื่อว่า Developer ที่ดีไม่ใช่แค่คนที่ Code
-            เก่ง แต่ต้องเข้าใจ &ldquo;ปัญหาจริง&rdquo; ที่ต้องการแก้ไขด้วย
-          </p>
+          <Paragraph indent>
+            ผมสามารถนำความเข้าใจด้านระบบและการทำงานจริง
+            มาพัฒนาเป็นระบบที่เชื่อมต่อข้อมูลระหว่าง SAP กับระบบภายใน
+            ทำให้ผู้ใช้สามารถคีย์ข้อมูลเพียงครั้งเดียว
+            แล้วนำไปใช้งานต่อได้ในหลายส่วน ช่วยลดขั้นตอนการทำงาน
+            ลดความซ้ำซ้อนของข้อมูล และลดต้นทุนในการขยายระบบบน SAP
+          </Paragraph>
         </div>
       ),
     },
@@ -131,7 +128,7 @@ export default function Page() {
                 <h1 className="text-3xl font-semibold flex items-center gap-4">
                   {item.headerIcon && <item.headerIcon />}
                   {item.headerEmoji && <p>{item.headerEmoji}</p>}
-                  <p>{item.header}</p>
+                  <p className=" w-full">{item.header}</p>
                 </h1>
                 {item.normalDetail && (
                   <p className="text-muted-foreground text-base leading-relaxed mt-2">
@@ -160,7 +157,9 @@ export default function Page() {
                 <p className="text-lg font-semibold text-foreground">
                   อยากรู้จักผมมากกว่านี้?
                 </p>
-                <p className="text-sm text-muted-foreground">ก่อนจะมาเป็น Full-Stack Developer — ผมผ่านอะไรมาบ้าง</p>
+                <p className="text-sm text-muted-foreground">
+                  ก่อนจะมาเป็น Full-Stack Developer — ผมผ่านอะไรมาบ้าง
+                </p>
               </div>
               <span className="flex items-center gap-2 text-sm font-medium text-primary whitespace-nowrap self-start sm:self-auto">
                 Go to journey
