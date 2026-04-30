@@ -86,7 +86,7 @@ export default function Page() {
 
           <Quote>
             &ldquo;เขียนโค้ดเนี่ยนะ ถ้าเราเรียนกับใคร
-            เราก็จะลายมือคนนั้นแหละ&rdquo;
+            เราก็จะลายมือเหมือนคนนั้นแหละ&rdquo;
           </Quote>
 
           <ImageBlock

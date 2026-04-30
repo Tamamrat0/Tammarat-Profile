@@ -17,7 +17,7 @@ export const CareerData: CareerItem[] = [
     jobSuccess: [
       {
         id: "1",
-        imagePath: "/images/success_2024.jpg",
+        imagePath: "/images/success_2024.webp",
         detail: "ได้รับรางวัลพนังงานดีเด่นประจำปี 2024",
       },
     ],

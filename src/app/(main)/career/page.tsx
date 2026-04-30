@@ -1,17 +1,14 @@
 "use client";
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Separator } from "@/components/ui/separator";
 import { ArrowRight, BriefcaseBusiness } from "lucide-react";
 import { InformationType } from "@/app/types/informaion-type";
 import { useScrollSpy } from "@/hooks/useScrollSpy";
 import { CareerData } from "./career-data";
-import { CareerItem } from "@/app/types/career-type";
-import CareerDialog from "@/components/career-dialog";
 
 export default function Page() {
-  const [openDetail, setOpenDetail] = useState(false);
-  const [detailCareer, setDetailCareer] = useState<CareerItem>();
   const informationPage: InformationType[] = [
     {
       id: "work",
@@ -47,12 +44,12 @@ export default function Page() {
                       {item.period.start} – {item.period.end}
                     </p>
                     <div className="flex justify-end">
-                      <button
-                        onClick={() => handleOpenDialog(item.id)}
-                        className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2 cursor-pointer"
+                      <Link
+                        href={`/career/${item.id}`}
+                        className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2"
                       >
                         รายละเอียดเพิ่มเติม <ArrowRight className="w-4 h-4" />
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -64,23 +61,11 @@ export default function Page() {
     },
   ];
 
-  function handleOpenDialog(id: string) {
-    const result = CareerData.find((i) => i.id === id);
-    if (!result) return;
-    setDetailCareer(result);
-    setOpenDetail(true);
-  }
-
   const sectionIds = informationPage.map((item) => item.id);
   const activeId = useScrollSpy(sectionIds, 200);
 
   return (
     <div className="flex w-full py-4">
-      <CareerDialog
-        open={openDetail}
-        close={setOpenDetail}
-        data={detailCareer}
-      />
       {/* Content */}
       <main className="flex-1 min-h-screen px-6 w-full sm:w-208 ">
         <div className="flex flex-col gap-3 w-full mb-8">

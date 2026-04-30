@@ -63,7 +63,6 @@ export default function CardProject({
             height={1024}
             className="object-cover w-full h-full"
           />
-          {/* <ImageSlider /> */}
         </div>
 
         {/* Overlay */}

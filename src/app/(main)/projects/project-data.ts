@@ -53,63 +53,63 @@ export const ProjectData: ProjectItem[] = [
     link: "",
     attachments: [
       {
-        imagePath: "/projects/v1-ticketview-IT.jpg",
+        imagePath: "/projects/v1-ticketview-IT.webp",
         detail: "หน้ารวมรายการแจ้งซ่อมของแผนก IT",
       },
       {
-        imagePath: "/projects/v1-ticketview-PE.jpg",
+        imagePath: "/projects/v1-ticketview-PE.webp",
         detail: "หน้ารวมรายการแจ้งซ่อมของแผนก PE",
       },
       {
-        imagePath: "/projects/v1-ticket.jpg",
+        imagePath: "/projects/v1-ticket.webp",
         detail: "หน้าติดตามสถานะการแจ้งซ่อมของผู้ใช้",
       },
       {
-        imagePath: "/projects/v1-ticket-dashboard.jpg",
+        imagePath: "/projects/v1-ticket-dashboard.webp",
         detail: "หน้าสรุปรวมรายการแจ้งซ่อม สำหรับนำไปวิเคราะห์",
       },
       {
-        imagePath: "/projects/v1-plm.jpg",
+        imagePath: "/projects/v1-plm.webp",
         detail: "หน้าปฏิทินแจ้งเตือนรอบทำความสะอาดทรัพย์สิน",
       },
       {
-        imagePath: "/projects/v1-plm-detail.jpg",
+        imagePath: "/projects/v1-plm-detail.webp",
         detail: "หน้าปฏิทินแจ้งเตือนรอบทำความสะอาดทรัพย์สิน - รายละเอียด",
       },
       {
-        imagePath: "/projects/v1-booking1.jpg",
+        imagePath: "/projects/v1-booking1.webp",
         detail: "หน้าจองห้องประชุม 1",
       },
       {
-        imagePath: "/projects/v1-booking2.jpg",
+        imagePath: "/projects/v1-booking2.webp",
         detail: "หน้าจองห้องประชุม 2",
       },
       {
-        imagePath: "/projects/v1-quotation1.jpg",
+        imagePath: "/projects/v1-quotation1.webp",
         detail: "หน้ารายการใบเสนอราคาทั้งหมด",
       },
       {
-        imagePath: "/projects/v1-quotation2.jpg",
+        imagePath: "/projects/v1-quotation2.webp",
         detail: "หน้าคีย์ข้อมูลใบเสนอราคา 1",
       },
       {
-        imagePath: "/projects/v1-quotation3.jpg",
+        imagePath: "/projects/v1-quotation3.webp",
         detail: "หน้าคีย์ข้อมูลใบเสนอราคา 2",
       },
       {
-        imagePath: "/projects/v1-quotation4.jpg",
+        imagePath: "/projects/v1-quotation4.webp",
         detail: "ตัวอย่างการทำเอกสารใบเสนอราคา",
       },
       {
-        imagePath: "/projects/v1-pdf1.jpg",
+        imagePath: "/projects/v1-pdf1.webp",
         detail: "ตัวอย่างการทำเอกสาร PDF จาก PDFKIT - 1",
       },
       {
-        imagePath: "/projects/v1-pdf2.jpg",
+        imagePath: "/projects/v1-pdf2.webp",
         detail: "ตัวอย่างการทำเอกสาร PDF จาก PDFKIT - 2",
       },
       {
-        imagePath: "/projects/v1-pdf3.jpg",
+        imagePath: "/projects/v1-pdf3.webp",
         detail: "ตัวอย่างการทำเอกสาร PDF จาก PDFKIT - 3",
       },
     ],
@@ -162,19 +162,19 @@ export const ProjectData: ProjectItem[] = [
     link: "",
     attachments: [
       {
-        imagePath: "/projects/v2-employees.jpg",
+        imagePath: "/projects/v2-employees.webp",
         detail: "หน้าแสดงผู้ใช้งานทั้งหมด",
       },
       {
-        imagePath: "/projects/v2-employee.jpg",
+        imagePath: "/projects/v2-employee.webp",
         detail: "หน้าแสดงและแก้ไขข้อมูลผู้ใช้งาน",
       },
       {
-        imagePath: "/projects/v2-role.jpg",
+        imagePath: "/projects/v2-role.webp",
         detail: "หน้าการตั้งค่ากลุ่มสิทธิ์การเข้าใช้งาน",
       },
       {
-        imagePath: "/projects/v2-notification-config.jpg",
+        imagePath: "/projects/v2-notification-config.webp",
         detail: "หน้าการตั้งค่าชุดการแจ้งเตือน",
       },
     ],
@@ -215,7 +215,7 @@ export const ProjectData: ProjectItem[] = [
     link: "",
     attachments: [
       {
-        imagePath: "/projects/wannsmart.png",
+        imagePath: "/projects/wannsmart.webp",
         detail: "ตัวอย่างหน้าแรกของโปรแกรม",
       },
     ],

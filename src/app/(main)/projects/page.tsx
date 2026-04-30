@@ -1,17 +1,15 @@
 "use client";
 import React, { Fragment, useState } from "react";
+import { useRouter } from "next/navigation";
 import { Separator } from "@/components/ui/separator";
 import { Layers } from "lucide-react";
 import { InformationType } from "@/app/types/informaion-type";
 import { useScrollSpy } from "@/hooks/useScrollSpy";
 import { ProjectData } from "./project-data";
 import CardProject from "@/components/app-card-project";
-import { ProjectItem } from "@/app/types/project-type";
-import ProjectDialog from "@/components/project-dialog";
 
 export default function Page() {
-  const [openProject, setOpenProject] = useState(false);
-  const [detailProject, setDetailProject] = useState<ProjectItem>();
+  const router = useRouter();
   const [activeCardId, setActiveCardId] = useState<string | null>(null);
 
   const informationPage: InformationType[] = [
@@ -55,8 +53,7 @@ export default function Page() {
     }
 
     setActiveCardId(null);
-    setDetailProject(result);
-    setOpenProject(true);
+    router.push(`/projects/${id}`);
   }
 
   const sectionIds = informationPage.map((item) => item.id);
@@ -64,11 +61,6 @@ export default function Page() {
 
   return (
     <div className="flex w-full py-4">
-      <ProjectDialog
-        open={openProject}
-        close={setOpenProject}
-        data={detailProject}
-      />
       {/* Content */}
       <main className="flex-1 min-h-screen px-6 w-full sm:w-208">
         <div className="flex flex-col gap-3 w-full mb-8">

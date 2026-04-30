@@ -1,5 +1,6 @@
 import AppFooter from "@/components/app-footer";
 import AppSidebar from "@/components/app-sidebar";
+import AppBackToTop from "@/components/app-back-to-top";
 
 export default function MainLayout({
   children,
@@ -16,6 +17,7 @@ export default function MainLayout({
       </div>
 
       <AppFooter />
+      <AppBackToTop />
     </div>
   );
 }
