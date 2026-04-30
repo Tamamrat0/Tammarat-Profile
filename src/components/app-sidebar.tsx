@@ -90,7 +90,7 @@ export default function AppSidebar() {
           <Link
             href={item.url}
             key={i}
-            className={`w-full text-sm flex items-center gap-2 text-muted-foreground hover:text-foreground duration-300 ${pathname === item.url ? "text-primary font-semibold" : "font-base"}`}
+            className={`w-full text-sm flex items-center gap-2 text-muted-foreground hover:text-foreground duration-300 ${pathname.startsWith(item.url) ? "text-primary font-semibold" : "font-base"}`}
           >
             <item.icon className="w-5 h-5" />
             {item.title}
@@ -128,7 +128,7 @@ export default function AppSidebar() {
                 <Link
                   href={item.url}
                   key={i}
-                  className={`w-full text-base flex items-center gap-2 text-muted-foreground hover:text-foreground ${pathname === item.url ? "text-primary font-semibold" : "font-base"}`}
+                  className={`w-full text-base flex items-center gap-2 text-muted-foreground hover:text-foreground ${pathname.startsWith(item.url) ? "text-primary font-semibold" : "font-base"}`}
                 >
                   <item.icon className="w-5 h-5" />
                   {item.title}
