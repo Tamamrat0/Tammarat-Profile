@@ -13,6 +13,8 @@ export const STACKS = [
   "SocketIo",
   "Docker",
   "SAP",
+  "GitHub Actions",
+  "Vercel",
 ] as const;
 
 export type StackName = (typeof STACKS)[number];

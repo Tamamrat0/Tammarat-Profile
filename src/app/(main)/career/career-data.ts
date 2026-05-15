@@ -6,13 +6,17 @@ export const CareerData: CareerItem[] = [
     companyName: "Wann Cosmetics & Laboratory Co., Ltd",
     companyLogo: "/images/logo-wann.svg",
     position: "IT Specialist (Internal System Developer)",
-    period: { start: "Dec 2021", end: "Present" },
+    period: { start: "Dec 2022", end: "Present" },
     jobExperience: [
-      "พัฒนา Web Application สำหรับใช้งานจริงภายในองค์กร ครอบคลุมหลายแผนก โดยรับผิดชอบแบบ End-to-End ตั้งแต่เก็บ Requirement จากผู้ใช้งานหน้างาน ออกแบบโครงสร้างระบบและฐานข้อมูล ไปจนถึงการพัฒนาและปรับปรุงระบบอย่างต่อเนื่อง",
-      "ออกแบบและพัฒนา RESTful API ด้วย Express.js และ NestJS ควบคู่กับ Frontend ด้วย React และ Next.js โดยเน้นความถูกต้องของข้อมูล ความปลอดภัย และประสบการณ์การใช้งานที่ตรงกับการทำงานจริง",
-      "พัฒนาและทดสอบระบบรับข้อมูลจากอุปกรณ์ชั่งน้ำหนักและ Flow Meter ผ่าน Serial Communication (RS232/RS485) เข้าสู่ Web Application เพื่อใช้งานในกระบวนการผลิตภายในโรงงาน",
+      "สร้างและพัฒนา Internal Web Application 3 ระบบ (WannSystem v.1, v.2, WannSmart) ที่พนักงานในองค์กรใช้งานจริงทุกวัน ครอบคลุมหลายแผนก แทนระบบเดิมและเติมเต็ม Workflow ที่ SAP Business One ไม่ครอบคลุม",
+      "รับผิดชอบงานแบบ End-to-End ตั้งแต่เก็บ Requirement จากผู้ใช้งานหน้างาน ออกแบบ Database Architecture พัฒนา Backend ด้วย Express.js / NestJS และ Frontend ด้วย React / Next.js พร้อมจัดทำเอกสารตามมาตรฐาน ISO",
       "วิเคราะห์โครงสร้างฐานข้อมูลของ SAP Business One และออกแบบ Satellite System เพื่อเชื่อมต่อและเติมเต็ม Workflow ในส่วนที่ระบบ ERP หลักยังไม่ครอบคลุม",
-      "ทำหน้าที่ Project Coordinator ในโครงการร่วมกับทีมพัฒนาภายนอก รับผิดชอบการรวบรวม Requirement วิเคราะห์กระบวนการทำงาน และประสานงานให้การพัฒนาสอดคล้องกับเป้าหมายขององค์กร",
+      "พัฒนาและทดสอบระบบรับข้อมูลจากอุปกรณ์ชั่งน้ำหนักและ Flow Meter ผ่าน Serial Communication (RS232/RS485) เข้าสู่ Web Application เพื่อใช้งานในกระบวนการผลิตภายในโรงงาน",
+      "ทำหน้าที่ Project Coordinator ในโครงการ WannSmart ร่วมกับทีมพัฒนาภายนอก รับผิดชอบการรวบรวม Requirement วิเคราะห์กระบวนการทำงาน และประสานงานให้การพัฒนาสอดคล้องกับเป้าหมายขององค์กร",
+      "ทำงานร่วมกับ Backend Developer ในการพัฒนา WannSystem v.2 โดยรับผิดชอบฝั่ง Frontend",
+      "ตั้งค่า CI/CD Pipeline ด้วย GitHub Actions และ Vercel เพื่อ Deploy ระบบอัตโนมัติ",
+      "ประยุกต์ใช้ AI Tools เป็นเครื่องมือเสริมในกระบวนการพัฒนา",
+      "ดูแลและสนับสนุนการใช้งาน SAP Business One ในระดับผู้ใช้งาน วิเคราะห์ปัญหา และประสานงานกับซัพพลายเออร์เพื่อแก้ไขให้สอดคล้องกับกระบวนการขององค์กร",
     ],
     jobSuccess: [
       {

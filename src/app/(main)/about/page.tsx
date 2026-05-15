@@ -50,7 +50,7 @@ export default function Page() {
           <Paragraph indent>
             สวัสดีครับ ผมชื่อธรรมรัตน์ มนตรี (ปลื้ม) อายุ 24 เป็น Full-Stack
             Developer ที่พัฒนา <Strong>Internal System</Strong>{" "}
-            ในองค์กรธุรกิจจริงมา 4+ ปี ดูแลงานตั้งแต่ Database, Backend,
+            ในองค์กรธุรกิจจริงมา 3+ ปี ดูแลงานตั้งแต่ Database, Backend,
             Frontend ไปจนถึงการเชื่อมต่อระบบให้ใช้งานได้จริง
             รวมถึงการพัฒนาแบบฟอร์มเอกสารให้สอดคล้องกับมาตรฐาน ISO
           </Paragraph>

@@ -128,6 +128,8 @@ export const ProjectData: ProjectItem[] = [
       "SocketIo",
       "Mssql",
       "SAP",
+      "GitHub Actions",
+      "Vercel",
     ],
     overview: [
       "พัฒนาระบบ Internal Business Support เวอร์ชันใหม่ที่รองรับการทำงานร่วมกันเป็นทีม",
@@ -147,6 +149,7 @@ export const ProjectData: ProjectItem[] = [
       "ออกแบบและพัฒนาระบบ User Permission ที่ละเอียดระดับหน้าจอและระดับการกระทำ (CRUD)",
       "พัฒนาระบบแจ้งเตือนที่ยืดหยุ่น โดยสามารถตั้งค่าเงื่อนไขผู้ส่ง-ผู้รับได้ตามความต้องการของแต่ละแผนก",
       "ประสานงานร่วมกับ Backend Developer ในการกำหนด Type และ Interface ของ API ด้วย TypeScript เพื่อลดความผิดพลาดในการเชื่อมต่อข้อมูล",
+      "ตั้งค่า CI/CD Pipeline ด้วย GitHub Actions เพื่อ Auto Deploy บน Windows Server และใช้ Vercel สำหรับ Public Test",
     ],
     problem: [
       "การเปลี่ยนผ่านจากระบบ v.1 ไปยัง v.2 (Migration Gap) ทำให้เกิดความท้าทายในการรักษาความต่อเนื่องของการทำงานของผู้ใช้งานเดิม",

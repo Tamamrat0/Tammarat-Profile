@@ -173,7 +173,7 @@ description: "เส้นทางจากเด็กที่อยากร
 
 ## 🚀 ปัจจุบัน — Full-Stack Developer ที่เชื่อใน "ปัญหาจริง"
 
-ตลอด 4 ปีที่ Wann ผมรับผิดชอบ **Internal System** แบบ End-to-End  
+ตลอด 3 ปีกว่าที่ Wann ผมรับผิดชอบ **Internal System** แบบ End-to-End  
 ตั้งแต่ออกแบบ Database, พัฒนา Backend ด้วย Express.js / NestJS, Frontend ด้วย React / Next.js  
 ไปจนถึงพัฒนา **Satellite System** เชื่อมต่อ SAP Business One  
 และ Integrate Hardware (Flow Meter, เครื่องชั่ง) ผ่าน Serial Communication

@@ -4,7 +4,7 @@
 
 ## ตำแหน่งปัจจุบัน
 
-- IT Specialist ที่ Wann Cosmetics (4 ปี)
+- IT Specialist ที่ Wann Cosmetics (3 ปีกว่า, เริ่ม Dec 2022)
 - ทำงานจริงในระดับ Full Stack Developer + Project Coordinator
 - เงินเดือนปัจจุบัน 22,000 (ต่ำกว่าตลาดมาก)
 

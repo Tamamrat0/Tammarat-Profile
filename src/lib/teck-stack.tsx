@@ -4,7 +4,7 @@ import { StackName } from "@/app/types/stack-type";
 
 import { TechHint } from "@/components/TechHint";
 
-const TECH_IMAGE_MAP: Record<StackName, string> = {
+const TECH_IMAGE_MAP: Partial<Record<StackName, string>> = {
   TypeScript: "/icons/typescript.png",
   JavaScript: "/icons/javascript.png",
   React: "/icons/react.png",

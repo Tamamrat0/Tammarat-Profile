@@ -390,8 +390,8 @@ export default function Page() {
       customDetail: (
         <div className="mt-4 space-y-4">
           <Paragraph>
-            ตลอด 4 ปีที่ Wann ผมดูแล <Strong>Internal System</Strong> แบบ
-            End-to-End ตั้งแต่การออกแบบ Database, พัฒนา Backend และ Frontend
+            ตลอด 3 ปีกว่าที่ Wann ผมดูแล <Strong>Internal System</Strong>{" "}
+            แบบ End-to-End ตั้งแต่การออกแบบ Database, พัฒนา Backend และ Frontend
             ไปจนถึงพัฒนา Satellite System ที่เชื่อมต่อกับ SAP Business One
           </Paragraph>
 
