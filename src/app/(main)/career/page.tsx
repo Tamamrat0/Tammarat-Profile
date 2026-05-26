@@ -3,6 +3,7 @@ import React, { Fragment } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Separator } from "@/components/ui/separator";
+import { Skeleton } from "@/components/ui/skeleton";
 import { ArrowRight, BriefcaseBusiness } from "lucide-react";
 import { InformationType } from "@/app/types/informaion-type";
 import { useScrollSpy } from "@/hooks/useScrollSpy";
@@ -56,6 +57,29 @@ export default function Page() {
               </div>
             </Fragment>
           ))}
+          <div className="group relative p-6 border border-dashed bg-secondary rounded-md w-full min-h-40 sm:min-h-35 flex flex-col items-start sm:items-center sm:flex-row gap-4 overflow-hidden">
+            {/* Logo / Image Skeleton */}
+            <Skeleton className="w-20 h-20 shrink-0" />
+
+            {/* Header Skeleton */}
+            <div className="flex flex-col w-full gap-3">
+              <div className="space-y-2">
+                <Skeleton className="h-4 w-40" />
+                <Skeleton className="h-3 w-32" />
+              </div>
+              <Skeleton className="h-3 w-24" />
+            </div>
+
+            {/* Shimmer Sweep */}
+            <div className="absolute inset-0 -translate-x-full bg-linear-to-r from-transparent via-foreground/5 to-transparent animate-shimmer pointer-events-none" />
+
+            {/* Coming Soon Overlay */}
+            <div className="absolute inset-0 flex items-center justify-center gap-2 pointer-events-none">
+              <p className="text-2xl sm:text-3xl font-bold tracking-widest uppercase text-muted-foreground/70">
+                Coming Soon
+              </p>
+            </div>
+          </div>
         </div>
       ),
     },
